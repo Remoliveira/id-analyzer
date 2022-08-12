@@ -25,9 +25,9 @@ class ProjectsService {
           ref: 'main',
         },
       );
-      // console.log(file);
+
       const zipFile = 'master.zip';
-      console.log(fs);
+
       request
         .get(file.url)
         .on('error', function (error) {
