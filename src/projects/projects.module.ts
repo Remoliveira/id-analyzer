@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { AlgorithmsService } from './algorithms.service';
 
 import { ProjectsController } from './projects.controller';
 import { ProjectsService } from './projects.service';
@@ -6,7 +7,7 @@ import { ProjectsService } from './projects.service';
 @Module({
   imports: [],
   controllers: [ProjectsController],
-  providers: [ProjectsService],
+  providers: [ProjectsService, AlgorithmsService],
 })
 class ProjectsModule {}
 

@@ -1,0 +1,144 @@
+nome,tipo,posicao,arquivo,nomeClasse,nomeMetodo
+ XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ PASSWORD ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ ASGARDIAN_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ PHILANTHROPISTS_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ SECURITY_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ AD_ROLE_MAPPING , RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ realmConfig,RealmConfig,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ roleMappings,RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ fileContent,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ nativeContent,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ type,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ mapGroupsAsRoles,boolean,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ loginWithCommonName,boolean,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ roleMappings, RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ settings,Settings,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ realm ,RealmConfig,Variavel,test.xml,AbstractAdLdapRealmTestCase,"nodeSettings
+"
+ builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"nodeSettings
+"
+ builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"buildRealmSettings
+"
+ content ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+"
+ name ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+"
+ builder ,PutRoleMappingRequestBuilder,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+"
+ response ,PutRoleMappingResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+"
+ templates ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"excludeTemplates
+"
+ content ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+"
+ nodeFiles ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+"
+ file ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+"
+ client ,Client,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+"
+ indexResponse ,IndexResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+"
+ getResponse ,GetResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+"
+ testnodeCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ testnodeClientProfileCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ activedirCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ testclientCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ openldapCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ samba4Cert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ that ,RoleMappingEntry,Variavel,test.xml,AbstractAdLdapRealmTestCase,"equals
+"
+ result ,int,Variavel,test.xml,AbstractAdLdapRealmTestCase,"hashCode
+"
+ builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"buildSettings
+"
+ name ,String,For,test.xml,AbstractAdLdapRealmTestCase,
+ builder ,PutRoleMappingRequestBuilder,For,test.xml,AbstractAdLdapRealmTestCase,
+ response ,PutRoleMappingResponse,For,test.xml,AbstractAdLdapRealmTestCase,
+ fileContent,String,Atributo,test.xml,RoleMappingEntry,
+ nativeContent,String,Atributo,test.xml,RoleMappingEntry,
+ that ,RoleMappingEntry,Variavel,test.xml,RoleMappingEntry,"equals
+"
+ result ,int,Variavel,test.xml,RoleMappingEntry,"hashCode
+"
+nome,tipo,posicao,arquivo,nomeClasse,nomeMetodo
+ XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ PASSWORD ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ ASGARDIAN_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ PHILANTHROPISTS_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ SECURITY_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ AD_ROLE_MAPPING , RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ realmConfig,RealmConfig,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ roleMappings,RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ fileContent,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ nativeContent,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ type,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ mapGroupsAsRoles,boolean,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ loginWithCommonName,boolean,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ roleMappings, RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ settings,Settings,Atributo,test.xml,AbstractAdLdapRealmTestCase,
+ realm ,RealmConfig,Variavel,test.xml,AbstractAdLdapRealmTestCase,"nodeSettings
+"
+ builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"nodeSettings
+"
+ builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"buildRealmSettings
+"
+ content ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+"
+ name ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+"
+ builder ,PutRoleMappingRequestBuilder,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+"
+ response ,PutRoleMappingResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+"
+ templates ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"excludeTemplates
+"
+ content ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+"
+ nodeFiles ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+"
+ file ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+"
+ client ,Client,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+"
+ indexResponse ,IndexResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+"
+ getResponse ,GetResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+"
+ testnodeCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ testnodeClientProfileCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ activedirCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ testclientCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ openldapCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ samba4Cert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+"
+ that ,RoleMappingEntry,Variavel,test.xml,AbstractAdLdapRealmTestCase,"equals
+"
+ result ,int,Variavel,test.xml,AbstractAdLdapRealmTestCase,"hashCode
+"
+ builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"buildSettings
+"
+ name ,String,For,test.xml,AbstractAdLdapRealmTestCase,
+ builder ,PutRoleMappingRequestBuilder,For,test.xml,AbstractAdLdapRealmTestCase,
+ response ,PutRoleMappingResponse,For,test.xml,AbstractAdLdapRealmTestCase,
+ fileContent,String,Atributo,test.xml,RoleMappingEntry,
+ nativeContent,String,Atributo,test.xml,RoleMappingEntry,
+ that ,RoleMappingEntry,Variavel,test.xml,RoleMappingEntry,"equals
+"
+ result ,int,Variavel,test.xml,RoleMappingEntry,"hashCode
+"

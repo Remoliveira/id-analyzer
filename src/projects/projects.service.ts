@@ -7,10 +7,17 @@ import { Octokit } from 'octokit';
 import * as request from 'superagent';
 
 import * as fs from 'fs';
+import { AlgorithmsService } from './algorithms.service';
+
+import { PythonShell } from 'python-shell';
 
 @Injectable({})
 class ProjectsService {
-  constructor(private prisma: PrismaService, private config: ConfigService) {}
+  constructor(
+    private prisma: PrismaService,
+    private config: ConfigService,
+    private algorithmsService: AlgorithmsService,
+  ) {}
   async storeProject(projectDto: ProjectsDTO) {
     try {
       console.log(projectDto);
@@ -47,12 +54,26 @@ class ProjectsService {
         }
       });
 
+      await this.extractIdentifiers();
+
+      await this.algorithmsService.applyFirstAlgorithm();
+
       return {
         message: `The project ${projectDto.repo} is going to be stored `,
       };
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async extractIdentifiers(): Promise<void> {
+    try {
+      PythonShell.run('Java.py', null, function (err, results) {
+        if (err) throw err;
+
+        // console.log(results);
+      });
+    } catch (error) {}
   }
 }
 

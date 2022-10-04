@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" revision="1.0.0" language="Java" filename="AbstractAdLdapRealmTestCase.java"><comment type="block">/*
+ * Copyright Elasticsearch B.V. and/or licensed to Elasticsearch B.V. under one
+ * or more contributor license agreements. Licensed under the Elastic License;
+ * you may not use this file except in compliance with the Elastic License.
+ */</comment>
+<package>package <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>ldap</name></name>;</package>
+
+<import>import <name><name>org</name><operator>.</operator><name>apache</name><operator>.</operator><name>logging</name><operator>.</operator><name>log4j</name><operator>.</operator><name>LogManager</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>ElasticsearchSecurityException</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>action</name><operator>.</operator><name>ActionFuture</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>action</name><operator>.</operator><name>DocWriteResponse</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>action</name><operator>.</operator><name>get</name><operator>.</operator><name>GetResponse</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>action</name><operator>.</operator><name>index</name><operator>.</operator><name>IndexResponse</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>client</name><operator>.</operator><name>Client</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>common</name><operator>.</operator><name>Nullable</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>common</name><operator>.</operator><name>bytes</name><operator>.</operator><name>BytesArray</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>common</name><operator>.</operator><name>settings</name><operator>.</operator><name>SecureString</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>common</name><operator>.</operator><name>settings</name><operator>.</operator><name>Settings</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>common</name><operator>.</operator><name>util</name><operator>.</operator><name>set</name><operator>.</operator><name>Sets</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>common</name><operator>.</operator><name>xcontent</name><operator>.</operator><name>XContentType</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>test</name><operator>.</operator><name>ESTestCase</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>test</name><operator>.</operator><name>SecurityIntegTestCase</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>security</name><operator>.</operator><name>action</name><operator>.</operator><name>rolemapping</name><operator>.</operator><name>PutRoleMappingRequestBuilder</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>security</name><operator>.</operator><name>action</name><operator>.</operator><name>rolemapping</name><operator>.</operator><name>PutRoleMappingResponse</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>ldap</name><operator>.</operator><name>ActiveDirectorySessionFactorySettings</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>support</name><operator>.</operator><name>UsernamePasswordToken</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>ssl</name><operator>.</operator><name>VerificationMode</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>security</name><operator>.</operator><name>support</name><operator>.</operator><name>SecurityIndexManager</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>junit</name><operator>.</operator><name>After</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>junit</name><operator>.</operator><name>AfterClass</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>junit</name><operator>.</operator><name>Before</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>junit</name><operator>.</operator><name>BeforeClass</name></name>;</import>
+
+<import>import <name><name>java</name><operator>.</operator><name>io</name><operator>.</operator><name>IOException</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>nio</name><operator>.</operator><name>file</name><operator>.</operator><name>Path</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Arrays</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Collections</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>LinkedHashMap</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>List</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Map</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Objects</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Set</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>function</name><operator>.</operator><name>Function</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>function</name><operator>.</operator><name>Supplier</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>stream</name><operator>.</operator><name>Collectors</name></name>;</import>
+
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>common</name><operator>.</operator><name>xcontent</name><operator>.</operator><name>XContentFactory</name><operator>.</operator><name>jsonBuilder</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>RealmSettings</name><operator>.</operator><name>getFullSettingKey</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>ldap</name><operator>.</operator><name>support</name><operator>.</operator><name>LdapSearchScope</name><operator>.</operator><name>ONE_LEVEL</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>ldap</name><operator>.</operator><name>support</name><operator>.</operator><name>LdapSearchScope</name><operator>.</operator><name>SUB_TREE</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>core</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>support</name><operator>.</operator><name>UsernamePasswordToken</name><operator>.</operator><name>BASIC_AUTH_HEADER</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>ldap</name><operator>.</operator><name>AbstractActiveDirectoryTestCase</name><operator>.</operator><name>AD_GC_LDAPS_PORT</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>ldap</name><operator>.</operator><name>AbstractActiveDirectoryTestCase</name><operator>.</operator><name>AD_GC_LDAP_PORT</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>ldap</name><operator>.</operator><name>AbstractActiveDirectoryTestCase</name><operator>.</operator><name>AD_LDAPS_PORT</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>security</name><operator>.</operator><name>authc</name><operator>.</operator><name>ldap</name><operator>.</operator><name>AbstractActiveDirectoryTestCase</name><operator>.</operator><name>AD_LDAP_PORT</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>elasticsearch</name><operator>.</operator><name>xpack</name><operator>.</operator><name>security</name><operator>.</operator><name>test</name><operator>.</operator><name>SecurityTestUtils</name><operator>.</operator><name>writeFile</name></name>;</import>
+<import>import static <name><name>org</name><operator>.</operator><name>hamcrest</name><operator>.</operator><name>Matchers</name><operator>.</operator><name>equalTo</name></name>;</import>
+
+<comment type="block" format="javadoc">/**
+ * This test assumes all subclass tests will be of type SUITE.  It picks a random realm configuration for the tests, and
+ * writes a group to role mapping file for each node.
+ */</comment>
+<class><specifier>public</specifier> <specifier>abstract</specifier> class <name>AbstractAdLdapRealmTestCase</name> <super_list><extends>extends <super><name>SecurityIntegTestCase</name></super></extends></super_list> <block>{
+
+    <decl_stmt><decl><type><specifier>public</specifier> <specifier>static</specifier> <specifier>final</specifier> <name>String</name></type> <name>XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL</name> <init>= <expr><literal type="string">"xpack.security.authc.realms.active_directory.external"</literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier>public</specifier> <specifier>static</specifier> <specifier>final</specifier> <name>String</name></type> <name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name> <init>= <expr><literal type="string">"xpack.security.authc.realms.ldap.external"</literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier>public</specifier> <specifier>static</specifier> <specifier>final</specifier> <name>String</name></type> <name>PASSWORD</name> <init>= <expr><name><name>AbstractActiveDirectoryTestCase</name><operator>.</operator><name>PASSWORD</name></name></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier>public</specifier> <specifier>static</specifier> <specifier>final</specifier> <name>String</name></type> <name>ASGARDIAN_INDEX</name> <init>= <expr><literal type="string">"gods"</literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier>public</specifier> <specifier>static</specifier> <specifier>final</specifier> <name>String</name></type> <name>PHILANTHROPISTS_INDEX</name> <init>= <expr><literal type="string">"philanthropists"</literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier>public</specifier> <specifier>static</specifier> <specifier>final</specifier> <name>String</name></type> <name>SECURITY_INDEX</name> <init>= <expr><literal type="string">"security"</literal></expr></init></decl>;</decl_stmt>
+
+    <decl_stmt><decl><type><specifier>private</specifier> <specifier>static</specifier> <specifier>final</specifier> <name><name>RoleMappingEntry</name><index>[]</index></name></type> <name>AD_ROLE_MAPPING</name> <init>= <expr><operator>new</operator> <name><name>RoleMappingEntry</name><index>[]</index></name> <block>{
+            <expr><operator>new</operator> <call><name>RoleMappingEntry</name><argument_list>(
+                    <argument><expr><literal type="string">"SHIELD:  [ \"CN=SHIELD,CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com\" ]"</literal></expr></argument>,
+                    <argument><expr><literal type="string">"{ \"roles\":[\"SHIELD\"], \"enabled\":true, \"rules\":"</literal> <operator>+</operator>
+                            <literal type="string">"{\"field\": {\"groups\": \"CN=SHIELD,CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com\"} } }"</literal></expr></argument>
+            )</argument_list></call></expr>,
+            <expr><operator>new</operator> <call><name>RoleMappingEntry</name><argument_list>(
+                    <argument><expr><literal type="string">"Avengers:  [ \"CN=Avengers,CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com\" ]"</literal></expr></argument>,
+                    <argument><expr><literal type="string">"{ \"roles\":[\"Avengers\"], \"enabled\":true, \"rules\":"</literal> <operator>+</operator>
+                            <literal type="string">"{ \"field\": { \"groups\" : \"CN=Avengers,CN=Users,*\" } } }"</literal></expr></argument>
+            )</argument_list></call></expr>,
+            <expr><operator>new</operator> <call><name>RoleMappingEntry</name><argument_list>(
+                    <argument><expr><literal type="string">"Gods:  [ \"CN=Gods,CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com\" ]"</literal></expr></argument>,
+                    <argument><expr><literal type="string">"{ \"roles\":[\"Gods\"], \"enabled\":true, \"rules\":{\"any\": ["</literal> <operator>+</operator>
+                            <literal type="string">" { \"field\":{ \"groups\":    \"CN=Gods,CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com\" } },"</literal> <operator>+</operator>
+                            <literal type="string">" { \"field\":{ \"groups\": \"CN=Deities,CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com\" } } "</literal> <operator>+</operator>
+                            <literal type="string">"] } }"</literal></expr></argument>
+            )</argument_list></call></expr>,
+            <expr><operator>new</operator> <call><name>RoleMappingEntry</name><argument_list>(
+                    <argument><expr><literal type="string">"Philanthropists:  [ \"CN=Philanthropists,CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com\" ]"</literal></expr></argument>,
+                    <argument><expr><literal type="string">"{ \"roles\":[\"Philanthropists\"], \"enabled\":true, \"rules\": { \"all\": ["</literal> <operator>+</operator>
+                            <literal type="string">" { \"field\": { \"groups\" : \"CN=Philanthropists,CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com\" } },"</literal> <operator>+</operator>
+                            <literal type="string">" { \"field\": { \"realm.name\" : \"external\" } } "</literal> <operator>+</operator>
+                            <literal type="string">"] } }"</literal></expr></argument>
+            )</argument_list></call></expr>
+    }</block></expr></init></decl>;</decl_stmt>
+
+    <decl_stmt><decl><type><specifier>protected</specifier> <specifier>static</specifier> <name>RealmConfig</name></type> <name>realmConfig</name></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier>protected</specifier> <specifier>static</specifier> <name><name>List</name><argument_list type="generic">&lt;<argument><name>RoleMappingEntry</name></argument>&gt;</argument_list></name></type> <name>roleMappings</name></decl>;</decl_stmt>
+
+    <function><annotation>@<name>BeforeClass</name></annotation>
+    <type><specifier>public</specifier> <specifier>static</specifier> <name>void</name></type> <name>setupRealm</name><parameter_list>()</parameter_list> <block>{<block_content>
+        <expr_stmt><expr><name>realmConfig</name> <operator>=</operator> <call><name>randomFrom</name><argument_list>(<argument><expr><call><name><name>RealmConfig</name><operator>.</operator><name>values</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><name>roleMappings</name> <operator>=</operator> <call><name><name>realmConfig</name><operator>.</operator><name>selectRoleMappings</name></name><argument_list>(<argument><expr><name>ESTestCase</name><operator>::</operator><name>randomBoolean</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>LogManager</name><operator>.</operator><name>getLogger</name></name><argument_list>(<argument><expr><name><name>AbstractAdLdapRealmTestCase</name><operator>.</operator><name>class</name></name></expr></argument>)</argument_list></call><operator>.</operator><call><name>info</name><argument_list>(
+                <argument><expr><literal type="string">"running test with realm configuration [{}], with direct group to role mapping [{}]. Settings [{}]"</literal></expr></argument>,
+                <argument><expr><name>realmConfig</name></expr></argument>, <argument><expr><name><name>realmConfig</name><operator>.</operator><name>mapGroupsAsRoles</name></name></expr></argument>, <argument><expr><name><name>realmConfig</name><operator>.</operator><name>settings</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    </block_content>}</block></function>
+
+    <function><annotation>@<name>AfterClass</name></annotation>
+    <type><specifier>public</specifier> <specifier>static</specifier> <name>void</name></type> <name>cleanupRealm</name><parameter_list>()</parameter_list> <block>{<block_content>
+        <expr_stmt><expr><name>realmConfig</name> <operator>=</operator> <literal type="null">null</literal></expr>;</expr_stmt>
+    </block_content>}</block></function>
+
+    <function><annotation>@<name>Override</name></annotation>
+    <type><specifier>protected</specifier> <name>Settings</name></type> <name>nodeSettings</name><parameter_list>(<parameter><decl><type><name>int</name></type> <name>nodeOrdinal</name></decl></parameter>)</parameter_list> <block>{<block_content>
+        <decl_stmt><decl><type><specifier>final</specifier> <name>RealmConfig</name></type> <name>realm</name> <init>= <expr><name><name>AbstractAdLdapRealmTestCase</name><operator>.</operator><name>realmConfig</name></name></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name><name>Settings</name><operator>.</operator><name>Builder</name></name></type> <name>builder</name> <init>= <expr><call><name><name>Settings</name><operator>.</operator><name>builder</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><call><name><name>builder</name><operator>.</operator><name>put</name></name><argument_list>(<argument><expr><call><name><name>super</name><operator>.</operator><name>nodeSettings</name></name><argument_list>(<argument><expr><name>nodeOrdinal</name></expr></argument>)</argument_list></call></expr></argument>, <argument><expr><literal type="boolean">true</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>builder</name><operator>.</operator><name>put</name></name><argument_list>(<argument><expr><call><name>buildRealmSettings</name><argument_list>(<argument><expr><name>realm</name></expr></argument>, <argument><expr><name>roleMappings</name></expr></argument>, <argument><expr><call><name>getNodeTrustedCertificates</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <return>return <expr><call><name><name>builder</name><operator>.</operator><name>build</name></name><argument_list>()</argument_list></call></expr>;</return>
+    </block_content>}</block></function>
+
+    <function><type><specifier>protected</specifier> <name>Settings</name></type> <name>buildRealmSettings</name><parameter_list>(<parameter><decl><type><name>RealmConfig</name></type> <name>realm</name></decl></parameter>, <parameter><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>RoleMappingEntry</name></argument>&gt;</argument_list></name></type> <name>roleMappingEntries</name></decl></parameter>, <parameter><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type>
+        <name>certificateAuthorities</name></decl></parameter>)</parameter_list> <block>{<block_content>
+        <decl_stmt><decl><type><name><name>Settings</name><operator>.</operator><name>Builder</name></name></type> <name>builder</name> <init>= <expr><call><name><name>Settings</name><operator>.</operator><name>builder</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><call><name><name>builder</name><operator>.</operator><name>put</name></name><argument_list>(<argument><expr><call><name><name>realm</name><operator>.</operator><name>buildSettings</name></name><argument_list>(<argument><expr><name>certificateAuthorities</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name>configureFileRoleMappings</name><argument_list>(<argument><expr><name>builder</name></expr></argument>, <argument><expr><name><name>realm</name><operator>.</operator><name>type</name></name></expr></argument>, <argument><expr><name>roleMappingEntries</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <return>return <expr><call><name><name>builder</name><operator>.</operator><name>build</name></name><argument_list>()</argument_list></call></expr>;</return>
+    </block_content>}</block></function>
+
+    <function><annotation>@<name>Before</name></annotation>
+    <type><specifier>public</specifier> <name>void</name></type> <name>setupRoleMappings</name><parameter_list>()</parameter_list> <throws>throws <argument><expr><name>Exception</name></expr></argument></throws> <block>{<block_content>
+        <expr_stmt><expr><call><name>assertSecurityIndexActive</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+
+        <decl_stmt><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type> <name>content</name> <init>= <expr><call><name>getRoleMappingContent</name><argument_list>(<argument><expr><name>RoleMappingEntry</name><operator>::</operator><name>getNativeContent</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <if_stmt><if>if <condition>(<expr><call><name><name>content</name><operator>.</operator><name>isEmpty</name></name><argument_list>()</argument_list></call></expr>)</condition> <block>{<block_content>
+            <return>return;</return>
+        </block_content>}</block></if></if_stmt>
+        <decl_stmt><decl><type><name><name>Map</name><argument_list type="generic">&lt;<argument><name>String</name></argument>, <argument><name><name>ActionFuture</name><argument_list type="generic">&lt;<argument><name>PutRoleMappingResponse</name></argument>&gt;</argument_list></name></argument>&gt;</argument_list></name></type> <name>futures</name> <init>= <expr><operator>new</operator> <call><name><name>LinkedHashMap</name><argument_list type="generic">&lt;&gt;</argument_list></name><argument_list>(<argument><expr><call><name><name>content</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <for>for <control>(<init><decl><type><name>int</name></type> <name>i</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</init> <condition><expr><name>i</name> <operator>&lt;</operator> <call><name><name>content</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr>;</condition> <incr><expr><name>i</name><operator>++</operator></expr></incr>)</control> <block>{<block_content>
+            <decl_stmt><decl><type><specifier>final</specifier> <name>String</name></type> <name>name</name> <init>= <expr><literal type="string">"external_"</literal> <operator>+</operator> <name>i</name></expr></init></decl>;</decl_stmt>
+            <decl_stmt><decl><type><specifier>final</specifier> <name>PutRoleMappingRequestBuilder</name></type> <name>builder</name> <init>= <expr><operator>new</operator> <call><name>PutRoleMappingRequestBuilder</name><argument_list>(<argument><expr><call><name>client</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>source</name><argument_list>(<argument><expr><name>name</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>BytesArray</name><argument_list>(<argument><expr><call><name><name>content</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>i</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></argument>, <argument><expr><name><name>XContentType</name><operator>.</operator><name>JSON</name></name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>futures</name><operator>.</operator><name>put</name></name><argument_list>(<argument><expr><name>name</name></expr></argument>, <argument><expr><call><name><name>builder</name><operator>.</operator><name>execute</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        </block_content>}</block></for>
+        <for>for <control>(<init><decl><type><name>String</name></type> <name>mappingName</name> <range>: <expr><call><name><name>futures</name><operator>.</operator><name>keySet</name></name><argument_list>()</argument_list></call></expr></range></decl></init>)</control> <block>{<block_content>
+            <decl_stmt><decl><type><specifier>final</specifier> <name>PutRoleMappingResponse</name></type> <name>response</name> <init>= <expr><call><name><name>futures</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>mappingName</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>get</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>logger</name><operator>.</operator><name>info</name></name><argument_list>(<argument><expr><literal type="string">"Created native role-mapping {} : {}"</literal></expr></argument>, <argument><expr><name>mappingName</name></expr></argument>, <argument><expr><call><name><name>response</name><operator>.</operator><name>isCreated</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        </block_content>}</block></for>
+    </block_content>}</block></function>
+
+    <function><annotation>@<name>After</name></annotation>
+    <type><specifier>public</specifier> <name>void</name></type> <name>cleanupSecurityIndex</name><parameter_list>()</parameter_list> <throws>throws <argument><expr><name>Exception</name></expr></argument></throws> <block>{<block_content>
+        <expr_stmt><expr><call><name><name>super</name><operator>.</operator><name>deleteSecurityIndex</name></name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+    </block_content>}</block></function>
+
+    <function><annotation>@<name>Override</name></annotation>
+    <type><specifier>public</specifier> <name><name>Set</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type> <name>excludeTemplates</name><parameter_list>()</parameter_list> <block>{<block_content>
+        <decl_stmt><decl><type><name><name>Set</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type> <name>templates</name> <init>= <expr><call><name><name>Sets</name><operator>.</operator><name>newHashSet</name></name><argument_list>(<argument><expr><call><name><name>super</name><operator>.</operator><name>excludeTemplates</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><call><name><name>templates</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name><name>SecurityIndexManager</name><operator>.</operator><name>SECURITY_MAIN_TEMPLATE_7</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt> <comment type="line">// don't remove the security index template</comment>
+        <return>return <expr><name>templates</name></expr>;</return>
+    </block_content>}</block></function>
+
+    <function><type><specifier>private</specifier> <name><name>List</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type> <name>getRoleMappingContent</name><parameter_list>(<parameter><decl><type><name><name>Function</name><argument_list type="generic">&lt;<argument><name>RoleMappingEntry</name></argument>, <argument><name>String</name></argument>&gt;</argument_list></name></type> <name>contentFunction</name></decl></parameter>)</parameter_list> <block>{<block_content>
+        <return>return <expr><call><name>getRoleMappingContent</name><argument_list>(<argument><expr><name>contentFunction</name></expr></argument>, <argument><expr><name><name>AbstractAdLdapRealmTestCase</name><operator>.</operator><name>roleMappings</name></name></expr></argument>)</argument_list></call></expr>;</return>
+    </block_content>}</block></function>
+
+    <function><type><specifier>private</specifier> <name><name>List</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type> <name>getRoleMappingContent</name><parameter_list>(<parameter><decl><type><name><name>Function</name><argument_list type="generic">&lt;<argument><name>RoleMappingEntry</name></argument>, <argument><name>String</name></argument>&gt;</argument_list></name></type> <name>contentFunction</name></decl></parameter>, <parameter><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>RoleMappingEntry</name></argument>&gt;</argument_list></name></type> <name>mappings</name></decl></parameter>)</parameter_list> <block>{<block_content>
+        <return>return <expr><call><name><name>mappings</name><operator>.</operator><name>stream</name></name><argument_list>()</argument_list></call>
+                <operator>.</operator><call><name>map</name><argument_list>(<argument><expr><name>contentFunction</name></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>filter</name><argument_list>(<argument><expr><name>Objects</name><operator>::</operator><name>nonNull</name></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>collect</name><argument_list>(<argument><expr><call><name><name>Collectors</name><operator>.</operator><name>toList</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</return>
+    </block_content>}</block></function>
+
+    <function><type><specifier>protected</specifier> <specifier>final</specifier> <name>void</name></type> <name>configureFileRoleMappings</name><parameter_list>(<parameter><decl><type><name><name>Settings</name><operator>.</operator><name>Builder</name></name></type> <name>builder</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>realmType</name></decl></parameter>, <parameter><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>RoleMappingEntry</name></argument>&gt;</argument_list></name></type> <name>mappings</name></decl></parameter>)</parameter_list> <block>{<block_content>
+        <decl_stmt><decl><type><name>String</name></type> <name>content</name> <init>= <expr><call><name>getRoleMappingContent</name><argument_list>(<argument><expr><name>RoleMappingEntry</name><operator>::</operator><name>getFileContent</name></expr></argument>, <argument><expr><name>mappings</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>stream</name><argument_list>()</argument_list></call><operator>.</operator><call><name>collect</name><argument_list>(<argument><expr><call><name><name>Collectors</name><operator>.</operator><name>joining</name></name><argument_list>(<argument><expr><literal type="string">"\n"</literal></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Path</name></type> <name>nodeFiles</name> <init>= <expr><call><name>createTempDir</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>String</name></type> <name>file</name> <init>= <expr><call><name>writeFile</name><argument_list>(<argument><expr><name>nodeFiles</name></expr></argument>, <argument><expr><literal type="string">"role_mapping.yml"</literal></expr></argument>, <argument><expr><name>content</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><call><name><name>builder</name><operator>.</operator><name>put</name></name><argument_list>(<argument><expr><literal type="string">"xpack.security.authc.realms."</literal> <operator>+</operator> <name>realmType</name> <operator>+</operator> <literal type="string">".external.files.role_mapping"</literal></expr></argument>, <argument><expr><name>file</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    </block_content>}</block></function>
+
+    <function><annotation>@<name>Override</name></annotation>
+    <type><specifier>protected</specifier> <name>String</name></type> <name>configRoles</name><parameter_list>()</parameter_list> <block>{<block_content>
+        <return>return <expr><call><name><name>super</name><operator>.</operator><name>configRoles</name></name><argument_list>()</argument_list></call> <operator>+</operator>
+                <literal type="string">"\n"</literal> <operator>+</operator>
+                <literal type="string">"Avengers:\n"</literal> <operator>+</operator>
+                <literal type="string">"  cluster: [ NONE ]\n"</literal> <operator>+</operator>
+                <literal type="string">"  indices:\n"</literal> <operator>+</operator>
+                <literal type="string">"    - names: 'avengers'\n"</literal> <operator>+</operator>
+                <literal type="string">"      privileges: [ all ]\n"</literal> <operator>+</operator>
+                <literal type="string">"SHIELD:\n"</literal> <operator>+</operator>
+                <literal type="string">"  cluster: [ NONE ]\n"</literal> <operator>+</operator>
+                <literal type="string">"  indices:\n"</literal> <operator>+</operator>
+                <literal type="string">"    - names: '"</literal> <operator>+</operator> <name>SECURITY_INDEX</name> <operator>+</operator> <literal type="string">"'\n"</literal> <operator>+</operator>
+                <literal type="string">"      privileges: [ all ]\n"</literal> <operator>+</operator>
+                <literal type="string">"Gods:\n"</literal> <operator>+</operator>
+                <literal type="string">"  cluster: [ NONE ]\n"</literal> <operator>+</operator>
+                <literal type="string">"  indices:\n"</literal> <operator>+</operator>
+                <literal type="string">"    - names: '"</literal> <operator>+</operator> <name>ASGARDIAN_INDEX</name> <operator>+</operator> <literal type="string">"'\n"</literal> <operator>+</operator>
+                <literal type="string">"      privileges: [ all ]\n"</literal> <operator>+</operator>
+                <literal type="string">"Philanthropists:\n"</literal> <operator>+</operator>
+                <literal type="string">"  cluster: [ NONE ]\n"</literal> <operator>+</operator>
+                <literal type="string">"  indices:\n"</literal> <operator>+</operator>
+                <literal type="string">"    - names: '"</literal> <operator>+</operator> <name>PHILANTHROPISTS_INDEX</name> <operator>+</operator> <literal type="string">"'\n"</literal> <operator>+</operator>
+                <literal type="string">"      privileges: [ all ]\n"</literal></expr>;</return>
+    </block_content>}</block></function>
+
+    <function><type><specifier>protected</specifier> <name>void</name></type> <name>assertAccessAllowed</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>user</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>index</name></decl></parameter>)</parameter_list> <throws>throws <argument><expr><name>IOException</name></expr></argument></throws> <block>{<block_content>
+        <decl_stmt><decl><type><name>Client</name></type> <name>client</name> <init>= <expr><call><name>client</name><argument_list>()</argument_list></call><operator>.</operator><call><name>filterWithHeader</name><argument_list>(<argument><expr><call><name><name>Collections</name><operator>.</operator><name>singletonMap</name></name><argument_list>(<argument><expr><name>BASIC_AUTH_HEADER</name></expr></argument>, <argument><expr><call><name>userHeader</name><argument_list>(<argument><expr><name>user</name></expr></argument>, <argument><expr><name>PASSWORD</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>IndexResponse</name></type> <name>indexResponse</name> <init>= <expr><call><name><name>client</name><operator>.</operator><name>prepareIndex</name></name><argument_list>(<argument><expr><name>index</name></expr></argument>)</argument_list></call><operator>.</operator>
+                <call><name>setSource</name><argument_list>(<argument><expr><call><name>jsonBuilder</name><argument_list>()</argument_list></call>
+                        <operator>.</operator><call><name>startObject</name><argument_list>()</argument_list></call>
+                        <operator>.</operator><call><name>field</name><argument_list>(<argument><expr><literal type="string">"name"</literal></expr></argument>, <argument><expr><literal type="string">"value"</literal></expr></argument>)</argument_list></call>
+                        <operator>.</operator><call><name>endObject</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>execute</name><argument_list>()</argument_list></call><operator>.</operator><call><name>actionGet</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name>assertEquals</name><argument_list>(<argument><expr><literal type="string">"user "</literal> <operator>+</operator> <name>user</name> <operator>+</operator> <literal type="string">" should have write access to index "</literal> <operator>+</operator> <name>index</name></expr></argument>,
+                <argument><expr><name><name>DocWriteResponse</name><operator>.</operator><name>Result</name><operator>.</operator><name>CREATED</name></name></expr></argument>, <argument><expr><call><name><name>indexResponse</name><operator>.</operator><name>getResult</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <expr_stmt><expr><call><name>refresh</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+
+        <decl_stmt><decl><type><name>GetResponse</name></type> <name>getResponse</name> <init>= <expr><call><name><name>client</name><operator>.</operator><name>prepareGet</name></name><argument_list>(<argument><expr><name>index</name></expr></argument>, <argument><expr><call><name><name>indexResponse</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>get</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name>assertThat</name><argument_list>(<argument><expr><literal type="string">"user "</literal> <operator>+</operator> <name>user</name> <operator>+</operator> <literal type="string">" should have read access to index "</literal> <operator>+</operator> <name>index</name></expr></argument>, <argument><expr><call><name><name>getResponse</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name>equalTo</name><argument_list>(<argument><expr><call><name><name>indexResponse</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    </block_content>}</block></function>
+
+    <function><type><specifier>protected</specifier> <name>void</name></type> <name>assertAccessDenied</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>user</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>index</name></decl></parameter>)</parameter_list> <throws>throws <argument><expr><name>IOException</name></expr></argument></throws> <block>{<block_content>
+        <try>try <block>{<block_content>
+            <expr_stmt><expr><call><name>client</name><argument_list>()</argument_list></call><operator>.</operator><call><name>filterWithHeader</name><argument_list>(<argument><expr><call><name><name>Collections</name><operator>.</operator><name>singletonMap</name></name><argument_list>(<argument><expr><name>BASIC_AUTH_HEADER</name></expr></argument>, <argument><expr><call><name>userHeader</name><argument_list>(<argument><expr><name>user</name></expr></argument>, <argument><expr><name>PASSWORD</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>prepareIndex</name><argument_list>(<argument><expr><name>index</name></expr></argument>)</argument_list></call><operator>.</operator>
+                    <call><name>setSource</name><argument_list>(<argument><expr><call><name>jsonBuilder</name><argument_list>()</argument_list></call>
+                            <operator>.</operator><call><name>startObject</name><argument_list>()</argument_list></call>
+                            <operator>.</operator><call><name>field</name><argument_list>(<argument><expr><literal type="string">"name"</literal></expr></argument>, <argument><expr><literal type="string">"value"</literal></expr></argument>)</argument_list></call>
+                            <operator>.</operator><call><name>endObject</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>execute</name><argument_list>()</argument_list></call><operator>.</operator><call><name>actionGet</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name>fail</name><argument_list>(<argument><expr><literal type="string">"Write access to index "</literal> <operator>+</operator> <name>index</name> <operator>+</operator> <literal type="string">" should not be allowed for user "</literal> <operator>+</operator> <name>user</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        </block_content>}</block> <catch>catch <parameter_list>(<parameter><decl><type><name>ElasticsearchSecurityException</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <comment type="line">// expected</comment>
+        </block_content>}</block></catch></try>
+        <expr_stmt><expr><call><name>refresh</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+    </block_content>}</block></function>
+
+    <function><type><specifier>protected</specifier> <specifier>static</specifier> <name>String</name></type> <name>userHeader</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>username</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>password</name></decl></parameter>)</parameter_list> <block>{<block_content>
+        <return>return <expr><call><name><name>UsernamePasswordToken</name><operator>.</operator><name>basicAuthHeaderValue</name></name><argument_list>(<argument><expr><name>username</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>SecureString</name><argument_list>(<argument><expr><call><name><name>password</name><operator>.</operator><name>toCharArray</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</return>
+    </block_content>}</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Collects all the certificates that are normally trusted by the node ( contained in testnode.jks )
+     */</comment>
+    <function><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type> <name>getNodeTrustedCertificates</name><parameter_list>()</parameter_list> <block>{<block_content>
+        <decl_stmt><decl><type><name>Path</name></type> <name>testnodeCert</name> <init>=
+            <expr><call><name>getDataPath</name><argument_list>(<argument><expr><literal type="string">"/org/elasticsearch/xpack/security/transport/ssl/certs/simple/testnode.crt"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Path</name></type> <name>testnodeClientProfileCert</name> <init>=
+            <expr><call><name>getDataPath</name><argument_list>(<argument><expr><literal type="string">"/org/elasticsearch/xpack/security/transport/ssl/certs/simple/testnode-client-profile.crt"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Path</name></type> <name>activedirCert</name> <init>=
+            <expr><call><name>getDataPath</name><argument_list>(<argument><expr><literal type="string">"/org/elasticsearch/xpack/security/transport/ssl/certs/simple/active-directory-ca.crt"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Path</name></type> <name>testclientCert</name> <init>=
+            <expr><call><name>getDataPath</name><argument_list>(<argument><expr><literal type="string">"/org/elasticsearch/xpack/security/transport/ssl/certs/simple/testclient.crt"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Path</name></type> <name>openldapCert</name> <init>=
+            <expr><call><name>getDataPath</name><argument_list>(<argument><expr><literal type="string">"/org/elasticsearch/xpack/security/transport/ssl/certs/simple/openldap.crt"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Path</name></type> <name>samba4Cert</name> <init>=
+            <expr><call><name>getDataPath</name><argument_list>(<argument><expr><literal type="string">"/org/elasticsearch/xpack/security/transport/ssl/certs/simple/samba4.crt"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <return>return <expr><call><name><name>Arrays</name><operator>.</operator><name>asList</name></name><argument_list>(<argument><expr><call><name><name>testnodeCert</name><operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>testnodeClientProfileCert</name><operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>activedirCert</name><operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>testclientCert</name>
+            <operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>openldapCert</name><operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>samba4Cert</name><operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</return>
+    </block_content>}</block></function>
+
+    <class><specifier>static</specifier> class <name>RoleMappingEntry</name> <block>{
+        <decl_stmt><decl><annotation>@<name>Nullable</name></annotation>
+        <type><specifier>public</specifier> <specifier>final</specifier> <name>String</name></type> <name>fileContent</name></decl>;</decl_stmt>
+        <decl_stmt><decl><annotation>@<name>Nullable</name></annotation>
+        <type><specifier>public</specifier> <specifier>final</specifier> <name>String</name></type> <name>nativeContent</name></decl>;</decl_stmt>
+
+        <constructor><name>RoleMappingEntry</name><parameter_list>(<parameter><decl><type><annotation>@<name>Nullable</name></annotation> <name>String</name></type> <name>fileContent</name></decl></parameter>, <parameter><decl><type><annotation>@<name>Nullable</name></annotation> <name>String</name></type> <name>nativeContent</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <expr_stmt><expr><name><name>this</name><operator>.</operator><name>fileContent</name></name> <operator>=</operator> <name>fileContent</name></expr>;</expr_stmt>
+            <expr_stmt><expr><name><name>this</name><operator>.</operator><name>nativeContent</name></name> <operator>=</operator> <name>nativeContent</name></expr>;</expr_stmt>
+        </block_content>}</block></constructor>
+
+        <function><type><name>String</name></type> <name>getFileContent</name><parameter_list>()</parameter_list> <block>{<block_content>
+            <return>return <expr><name>fileContent</name></expr>;</return>
+        </block_content>}</block></function>
+
+        <function><type><name>String</name></type> <name>getNativeContent</name><parameter_list>()</parameter_list> <block>{<block_content>
+            <return>return <expr><name>nativeContent</name></expr>;</return>
+        </block_content>}</block></function>
+
+        <function><type><name>RoleMappingEntry</name></type> <name>pickEntry</name><parameter_list>(<parameter><decl><type><name><name>Supplier</name><argument_list type="generic">&lt;<argument><name>Boolean</name></argument>&gt;</argument_list></name></type> <name>shouldPickFileContent</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <if_stmt><if>if <condition>(<expr><name>nativeContent</name> <operator>==</operator> <literal type="null">null</literal></expr>)</condition> <block>{<block_content>
+                <return>return <expr><operator>new</operator> <call><name>RoleMappingEntry</name><argument_list>(<argument><expr><name>fileContent</name></expr></argument>, <argument><expr><literal type="null">null</literal></expr></argument>)</argument_list></call></expr>;</return>
+            </block_content>}</block></if></if_stmt>
+            <if_stmt><if>if <condition>(<expr><name>fileContent</name> <operator>==</operator> <literal type="null">null</literal></expr>)</condition> <block>{<block_content>
+                <return>return <expr><operator>new</operator> <call><name>RoleMappingEntry</name><argument_list>(<argument><expr><literal type="null">null</literal></expr></argument>, <argument><expr><name>nativeContent</name></expr></argument>)</argument_list></call></expr>;</return>
+            </block_content>}</block></if></if_stmt>
+            <if_stmt><if>if <condition>(<expr><call><name><name>shouldPickFileContent</name><operator>.</operator><name>get</name></name><argument_list>()</argument_list></call></expr>)</condition> <block>{<block_content>
+                <return>return <expr><operator>new</operator> <call><name>RoleMappingEntry</name><argument_list>(<argument><expr><name>fileContent</name></expr></argument>, <argument><expr><literal type="null">null</literal></expr></argument>)</argument_list></call></expr>;</return>
+            </block_content>}</block></if> <else>else <block>{<block_content>
+                <return>return <expr><operator>new</operator> <call><name>RoleMappingEntry</name><argument_list>(<argument><expr><literal type="null">null</literal></expr></argument>, <argument><expr><name>nativeContent</name></expr></argument>)</argument_list></call></expr>;</return>
+            </block_content>}</block></else></if_stmt>
+        </block_content>}</block></function>
+
+        <function><annotation>@<name>Override</name></annotation>
+        <type><specifier>public</specifier> <name>boolean</name></type> <name>equals</name><parameter_list>(<parameter><decl><type><name>Object</name></type> <name>o</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <if_stmt><if>if <condition>(<expr><name>this</name> <operator>==</operator> <name>o</name></expr>)</condition> <block>{<block_content>
+                <return>return <expr><literal type="boolean">true</literal></expr>;</return>
+            </block_content>}</block></if></if_stmt>
+            <if_stmt><if>if <condition>(<expr><name>o</name> <operator>==</operator> <literal type="null">null</literal> <operator>||</operator> <call><name>getClass</name><argument_list>()</argument_list></call> <operator>!=</operator> <call><name><name>o</name><operator>.</operator><name>getClass</name></name><argument_list>()</argument_list></call></expr>)</condition> <block>{<block_content>
+                <return>return <expr><literal type="boolean">false</literal></expr>;</return>
+            </block_content>}</block></if></if_stmt>
+
+            <decl_stmt><decl><type><specifier>final</specifier> <name>RoleMappingEntry</name></type> <name>that</name> <init>= <expr><operator>(</operator><name>RoleMappingEntry</name><operator>)</operator> <name>o</name></expr></init></decl>;</decl_stmt>
+            <return>return <expr><call><name><name>Objects</name><operator>.</operator><name>equals</name></name><argument_list>(<argument><expr><name><name>this</name><operator>.</operator><name>fileContent</name></name></expr></argument>, <argument><expr><name><name>that</name><operator>.</operator><name>fileContent</name></name></expr></argument>)</argument_list></call>
+                    <operator>&amp;&amp;</operator> <call><name><name>Objects</name><operator>.</operator><name>equals</name></name><argument_list>(<argument><expr><name><name>this</name><operator>.</operator><name>nativeContent</name></name></expr></argument>, <argument><expr><name><name>that</name><operator>.</operator><name>nativeContent</name></name></expr></argument>)</argument_list></call></expr>;</return>
+        </block_content>}</block></function>
+
+        <function><annotation>@<name>Override</name></annotation>
+        <type><specifier>public</specifier> <name>int</name></type> <name>hashCode</name><parameter_list>()</parameter_list> <block>{<block_content>
+            <decl_stmt><decl><type><name>int</name></type> <name>result</name> <init>= <expr><call><name><name>Objects</name><operator>.</operator><name>hashCode</name></name><argument_list>(<argument><expr><name>fileContent</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><name>result</name> <operator>=</operator> <literal type="number">31</literal> <operator>*</operator> <name>result</name> <operator>+</operator> <call><name><name>Objects</name><operator>.</operator><name>hashCode</name></name><argument_list>(<argument><expr><name>nativeContent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <return>return <expr><name>result</name></expr>;</return>
+        </block_content>}</block></function>
+    }</block></class>
+
+    <comment type="block" format="javadoc">/**
+     * Represents multiple possible configurations for active directory and ldap
+     */</comment>
+    <enum>enum <name>RealmConfig</name> <block>{
+
+        <decl><name>AD</name><argument_list>(<argument><expr><literal type="boolean">false</literal></expr></argument>, <argument><expr><name>AD_ROLE_MAPPING</name></expr></argument>,
+                <argument><expr><call><name><name>Settings</name><operator>.</operator><name>builder</name></name><argument_list>()</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL</name> <operator>+</operator> <literal type="string">".domain_name"</literal></expr></argument>, <argument><expr><name><name>ActiveDirectorySessionFactoryTests</name><operator>.</operator><name>AD_DOMAIN</name></name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL</name>
+                                <operator>+</operator> <literal type="string">".group_search.base_dn"</literal></expr></argument>, <argument><expr><literal type="string">"CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com"</literal></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL</name> <operator>+</operator> <literal type="string">".group_search.scope"</literal></expr></argument>, <argument><expr><ternary><condition><expr><call><name>randomBoolean</name><argument_list>()</argument_list></call></expr> ?</condition><then> <expr><name>SUB_TREE</name></expr> </then><else>: <expr><name>ONE_LEVEL</name></expr></else></ternary></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL</name> <operator>+</operator> <literal type="string">".url"</literal></expr></argument>, <argument><expr><name><name>ActiveDirectorySessionFactoryTests</name><operator>.</operator><name>AD_LDAP_URL</name></name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL</name> <operator>+</operator> <literal type="string">".follow_referrals"</literal></expr></argument>,
+                                <argument><expr><name><name>ActiveDirectorySessionFactoryTests</name><operator>.</operator><name>FOLLOW_REFERRALS</name></name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><call><name>getFullSettingKey</name><argument_list>(<argument><expr><literal type="string">"external"</literal></expr></argument>,<argument><expr><name><name>ActiveDirectorySessionFactorySettings</name><operator>.</operator><name>AD_LDAP_PORT_SETTING</name></name></expr></argument>)</argument_list></call></expr></argument>, <argument><expr><name>AD_LDAP_PORT</name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><call><name>getFullSettingKey</name><argument_list>(<argument><expr><literal type="string">"external"</literal></expr></argument>,<argument><expr><name><name>ActiveDirectorySessionFactorySettings</name><operator>.</operator><name>AD_LDAPS_PORT_SETTING</name></name></expr></argument>)</argument_list></call></expr></argument>, <argument><expr><name>AD_LDAPS_PORT</name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><call><name>getFullSettingKey</name><argument_list>(<argument><expr><literal type="string">"external"</literal></expr></argument>,<argument><expr><name><name>ActiveDirectorySessionFactorySettings</name><operator>.</operator><name>AD_GC_LDAP_PORT_SETTING</name></name></expr></argument>)</argument_list></call></expr></argument>, <argument><expr><name>AD_GC_LDAP_PORT</name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><call><name>getFullSettingKey</name><argument_list>(<argument><expr><literal type="string">"external"</literal></expr></argument>,<argument><expr><name><name>ActiveDirectorySessionFactorySettings</name><operator>.</operator><name>AD_GC_LDAPS_PORT_SETTING</name></name></expr></argument>)</argument_list></call></expr></argument>, <argument><expr><name>AD_GC_LDAPS_PORT</name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>build</name><argument_list>()</argument_list></call></expr></argument>,
+            <argument><expr><literal type="string">"active_directory"</literal></expr></argument>)</argument_list></decl>,
+
+        <decl><name>AD_LDAP_GROUPS_FROM_SEARCH</name><argument_list>(<argument><expr><literal type="boolean">true</literal></expr></argument>, <argument><expr><name>AD_ROLE_MAPPING</name></expr></argument>,
+                <argument><expr><call><name><name>Settings</name><operator>.</operator><name>builder</name></name><argument_list>()</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name> <operator>+</operator> <literal type="string">".url"</literal></expr></argument>, <argument><expr><name><name>ActiveDirectorySessionFactoryTests</name><operator>.</operator><name>AD_LDAP_URL</name></name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name>
+                                <operator>+</operator> <literal type="string">".group_search.base_dn"</literal></expr></argument>, <argument><expr><literal type="string">"CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com"</literal></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name> <operator>+</operator> <literal type="string">".group_search.scope"</literal></expr></argument>, <argument><expr><ternary><condition><expr><call><name>randomBoolean</name><argument_list>()</argument_list></call></expr> ?</condition><then> <expr><name>SUB_TREE</name></expr> </then><else>: <expr><name>ONE_LEVEL</name></expr></else></ternary></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>putList</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name> <operator>+</operator> <literal type="string">".user_dn_templates"</literal></expr></argument>,
+                                <argument><expr><literal type="string">"cn={0},CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com"</literal></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name> <operator>+</operator> <literal type="string">".follow_referrals"</literal></expr></argument>,
+                                <argument><expr><name><name>ActiveDirectorySessionFactoryTests</name><operator>.</operator><name>FOLLOW_REFERRALS</name></name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>build</name><argument_list>()</argument_list></call></expr></argument>,
+            <argument><expr><literal type="string">"ldap"</literal></expr></argument>)</argument_list></decl>,
+
+        <decl><name>AD_LDAP_GROUPS_FROM_ATTRIBUTE</name><argument_list>(<argument><expr><literal type="boolean">true</literal></expr></argument>, <argument><expr><name>AD_ROLE_MAPPING</name></expr></argument>,
+                <argument><expr><call><name><name>Settings</name><operator>.</operator><name>builder</name></name><argument_list>()</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name> <operator>+</operator> <literal type="string">".url"</literal></expr></argument>, <argument><expr><name><name>ActiveDirectorySessionFactoryTests</name><operator>.</operator><name>AD_LDAP_URL</name></name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>putList</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name> <operator>+</operator> <literal type="string">".user_dn_templates"</literal></expr></argument>,
+                                <argument><expr><literal type="string">"cn={0},CN=Users,DC=ad,DC=test,DC=elasticsearch,DC=com"</literal></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name>XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL</name> <operator>+</operator> <literal type="string">".follow_referrals"</literal></expr></argument>,
+                                <argument><expr><name><name>ActiveDirectorySessionFactoryTests</name><operator>.</operator><name>FOLLOW_REFERRALS</name></name></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>build</name><argument_list>()</argument_list></call></expr></argument>,
+            <argument><expr><literal type="string">"ldap"</literal></expr></argument>)</argument_list></decl>;
+
+        <decl_stmt><decl><type><specifier>final</specifier> <name>String</name></type> <name>type</name></decl>;</decl_stmt>
+        <decl_stmt><decl><type><specifier>final</specifier> <name>boolean</name></type> <name>mapGroupsAsRoles</name></decl>;</decl_stmt>
+        <decl_stmt><decl><type><specifier>final</specifier> <name>boolean</name></type> <name>loginWithCommonName</name></decl>;</decl_stmt>
+        <decl_stmt><decl><type><specifier>private</specifier> <specifier>final</specifier> <name><name>RoleMappingEntry</name><index>[]</index></name></type> <name>roleMappings</name></decl>;</decl_stmt>
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Settings</name></type> <name>settings</name></decl>;</decl_stmt>
+
+        <constructor><name>RealmConfig</name><parameter_list>(<parameter><decl><type><name>boolean</name></type> <name>loginWithCommonName</name></decl></parameter>, <parameter><decl><type><name><name>RoleMappingEntry</name><index>[]</index></name></type> <name>roleMappings</name></decl></parameter>, <parameter><decl><type><name>Settings</name></type> <name>settings</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>type</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <expr_stmt><expr><name><name>this</name><operator>.</operator><name>settings</name></name> <operator>=</operator> <name>settings</name></expr>;</expr_stmt>
+            <expr_stmt><expr><name><name>this</name><operator>.</operator><name>loginWithCommonName</name></name> <operator>=</operator> <name>loginWithCommonName</name></expr>;</expr_stmt>
+            <expr_stmt><expr><name><name>this</name><operator>.</operator><name>roleMappings</name></name> <operator>=</operator> <name>roleMappings</name></expr>;</expr_stmt>
+            <expr_stmt><expr><name><name>this</name><operator>.</operator><name>mapGroupsAsRoles</name></name> <operator>=</operator> <call><name>randomBoolean</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><name><name>this</name><operator>.</operator><name>type</name></name> <operator>=</operator> <name>type</name></expr>;</expr_stmt>
+        </block_content>}</block></constructor>
+
+        <function><type><specifier>public</specifier> <name>Settings</name></type> <name>buildSettings</name><parameter_list>(<parameter><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type> <name>certificateAuthorities</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <return>return <expr><call><name>buildSettings</name><argument_list>(<argument><expr><name>certificateAuthorities</name></expr></argument>, <argument><expr><call><name>randomInt</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</return>
+        </block_content>}</block></function>
+
+
+        <function><type><specifier>protected</specifier> <name>Settings</name></type> <name>buildSettings</name><parameter_list>(<parameter><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>String</name></argument>&gt;</argument_list></name></type> <name>certificateAuthorities</name></decl></parameter>, <parameter><decl><type><name>int</name></type> <name>order</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <decl_stmt><decl><type><name><name>Settings</name><operator>.</operator><name>Builder</name></name></type> <name>builder</name> <init>= <expr><call><name><name>Settings</name><operator>.</operator><name>builder</name></name><argument_list>()</argument_list></call>
+                <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><literal type="string">"xpack.security.authc.realms."</literal> <operator>+</operator> <name>type</name> <operator>+</operator> <literal type="string">".external.order"</literal></expr></argument>, <argument><expr><name>order</name></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><literal type="string">"xpack.security.authc.realms."</literal> <operator>+</operator> <name>type</name> <operator>+</operator> <literal type="string">".external.ssl.verification_mode"</literal></expr></argument>, <argument><expr><name><name>VerificationMode</name><operator>.</operator><name>CERTIFICATE</name></name></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><literal type="string">"xpack.security.authc.realms."</literal> <operator>+</operator> <name>type</name> <operator>+</operator> <literal type="string">".external.unmapped_groups_as_roles"</literal></expr></argument>, <argument><expr><name>mapGroupsAsRoles</name></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>put</name><argument_list>(<argument><expr><name><name>this</name><operator>.</operator><name>settings</name></name></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>putList</name><argument_list>(<argument><expr><literal type="string">"xpack.security.authc.realms."</literal> <operator>+</operator> <name>type</name> <operator>+</operator> <literal type="string">".external.ssl.certificate_authorities"</literal></expr></argument>, <argument><expr><name>certificateAuthorities</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+            <return>return <expr><call><name><name>builder</name><operator>.</operator><name>build</name></name><argument_list>()</argument_list></call></expr>;</return>
+        </block_content>}</block></function>
+
+        <function><type><specifier>public</specifier> <name><name>List</name><argument_list type="generic">&lt;<argument><name>RoleMappingEntry</name></argument>&gt;</argument_list></name></type> <name>selectRoleMappings</name><parameter_list>(<parameter><decl><type><name><name>Supplier</name><argument_list type="generic">&lt;<argument><name>Boolean</name></argument>&gt;</argument_list></name></type> <name>shouldPickFileContent</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <comment type="line">// if mapGroupsAsRoles is turned on we use empty role mapping</comment>
+            <if_stmt><if>if <condition>(<expr><name>mapGroupsAsRoles</name></expr>)</condition> <block>{<block_content>
+                <return>return <expr><call><name><name>Collections</name><operator>.</operator><name>emptyList</name></name><argument_list>()</argument_list></call></expr>;</return>
+            </block_content>}</block></if> <else>else <block>{<block_content>
+                <return>return <expr><call><name><name>Arrays</name><operator>.</operator><name>stream</name></name><argument_list>(<argument><expr><name><name>this</name><operator>.</operator><name>roleMappings</name></name></expr></argument>)</argument_list></call>
+                        <operator>.</operator><call><name>map</name><argument_list>(<argument><expr><lambda><parameter_list type="pseudo"><parameter><decl><name>e</name></decl></parameter></parameter_list> -&gt;<block type="pseudo"><block_content> <expr><call><name><name>e</name><operator>.</operator><name>pickEntry</name></name><argument_list>(<argument><expr><name>shouldPickFileContent</name></expr></argument>)</argument_list></call></expr></block_content></block></lambda></expr></argument>)</argument_list></call>
+                        <operator>.</operator><call><name>collect</name><argument_list>(<argument><expr><call><name><name>Collectors</name><operator>.</operator><name>toList</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</return>
+            </block_content>}</block></else></if_stmt>
+        </block_content>}</block></function>
+    }</block></enum>
+}</block></class>
+</unit>
