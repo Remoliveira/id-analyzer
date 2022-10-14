@@ -1,0 +1,94 @@
+nome_projeto,nome_identificador,nome_classe,posicao_identificador,score
+projeto, XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL ,AbstractAdLdapRealmTestCase,Atributo,0.33
+projeto, XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL ,AbstractAdLdapRealmTestCase,Atributo,0.5
+projeto, PASSWORD ,AbstractAdLdapRealmTestCase,Atributo,3.0
+projeto, ASGARDIAN_INDEX ,AbstractAdLdapRealmTestCase,Atributo,0.5
+projeto, PHILANTHROPISTS_INDEX ,AbstractAdLdapRealmTestCase,Atributo,7.5
+projeto, SECURITY_INDEX ,AbstractAdLdapRealmTestCase,Atributo,4.5
+projeto, AD_ROLE_MAPPING ,AbstractAdLdapRealmTestCase,Atributo,2.0
+projeto, realmConfig,AbstractAdLdapRealmTestCase,Atributo,2.5
+projeto, roleMappings,AbstractAdLdapRealmTestCase,Atributo,2.0
+projeto, fileContent,AbstractAdLdapRealmTestCase,Atributo,3.0
+projeto, nativeContent,AbstractAdLdapRealmTestCase,Atributo,3.0
+projeto, type,AbstractAdLdapRealmTestCase,Atributo,1.0
+projeto, mapGroupsAsRoles,AbstractAdLdapRealmTestCase,Atributo,4.0
+projeto, loginWithCommonName,AbstractAdLdapRealmTestCase,Atributo,0.25
+projeto, roleMappings,AbstractAdLdapRealmTestCase,Atributo,2.0
+projeto, settings,AbstractAdLdapRealmTestCase,Atributo,6.0
+projeto, realm ,AbstractAdLdapRealmTestCase,Variavel,4.0
+projeto, builder ,AbstractAdLdapRealmTestCase,Variavel,2.0
+projeto, builder ,AbstractAdLdapRealmTestCase,Variavel,2.0
+projeto, content ,AbstractAdLdapRealmTestCase,Variavel,3.0
+projeto, name ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, builder ,AbstractAdLdapRealmTestCase,Variavel,2.0
+projeto, response ,AbstractAdLdapRealmTestCase,Variavel,7.0
+projeto, templates ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, content ,AbstractAdLdapRealmTestCase,Variavel,3.0
+projeto, nodeFiles ,AbstractAdLdapRealmTestCase,Variavel,3.5
+projeto, file ,AbstractAdLdapRealmTestCase,Variavel,3.0
+projeto, client ,AbstractAdLdapRealmTestCase,Variavel,5.0
+projeto, indexResponse ,AbstractAdLdapRealmTestCase,Variavel,5.5
+projeto, getResponse ,AbstractAdLdapRealmTestCase,Variavel,4.5
+projeto, testnodeCert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, testnodeClientProfileCert ,AbstractAdLdapRealmTestCase,Variavel,0.5
+projeto, activedirCert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, testclientCert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, openldapCert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, samba4Cert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, that ,AbstractAdLdapRealmTestCase,Variavel,3.0
+projeto, result ,AbstractAdLdapRealmTestCase,Variavel,7.0
+projeto, builder ,AbstractAdLdapRealmTestCase,Variavel,2.0
+projeto, name ,AbstractAdLdapRealmTestCase,For,1.0
+projeto, builder ,AbstractAdLdapRealmTestCase,For,2.0
+projeto, response ,AbstractAdLdapRealmTestCase,For,7.0
+projeto, fileContent,RoleMappingEntry,Atributo,3.0
+projeto, nativeContent,RoleMappingEntry,Atributo,3.0
+projeto, that ,RoleMappingEntry,Variavel,3.0
+projeto, result ,RoleMappingEntry,Variavel,7.0
+projeto,nome,nomeClasse,posicao,1.0
+projeto, XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL ,AbstractAdLdapRealmTestCase,Atributo,0.33
+projeto, XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL ,AbstractAdLdapRealmTestCase,Atributo,0.5
+projeto, PASSWORD ,AbstractAdLdapRealmTestCase,Atributo,3.0
+projeto, ASGARDIAN_INDEX ,AbstractAdLdapRealmTestCase,Atributo,0.5
+projeto, PHILANTHROPISTS_INDEX ,AbstractAdLdapRealmTestCase,Atributo,7.5
+projeto, SECURITY_INDEX ,AbstractAdLdapRealmTestCase,Atributo,4.5
+projeto, AD_ROLE_MAPPING ,AbstractAdLdapRealmTestCase,Atributo,2.0
+projeto, realmConfig,AbstractAdLdapRealmTestCase,Atributo,2.5
+projeto, roleMappings,AbstractAdLdapRealmTestCase,Atributo,2.0
+projeto, fileContent,AbstractAdLdapRealmTestCase,Atributo,3.0
+projeto, nativeContent,AbstractAdLdapRealmTestCase,Atributo,3.0
+projeto, type,AbstractAdLdapRealmTestCase,Atributo,1.0
+projeto, mapGroupsAsRoles,AbstractAdLdapRealmTestCase,Atributo,4.0
+projeto, loginWithCommonName,AbstractAdLdapRealmTestCase,Atributo,0.25
+projeto, roleMappings,AbstractAdLdapRealmTestCase,Atributo,2.0
+projeto, settings,AbstractAdLdapRealmTestCase,Atributo,6.0
+projeto, realm ,AbstractAdLdapRealmTestCase,Variavel,4.0
+projeto, builder ,AbstractAdLdapRealmTestCase,Variavel,2.0
+projeto, builder ,AbstractAdLdapRealmTestCase,Variavel,2.0
+projeto, content ,AbstractAdLdapRealmTestCase,Variavel,3.0
+projeto, name ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, builder ,AbstractAdLdapRealmTestCase,Variavel,2.0
+projeto, response ,AbstractAdLdapRealmTestCase,Variavel,7.0
+projeto, templates ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, content ,AbstractAdLdapRealmTestCase,Variavel,3.0
+projeto, nodeFiles ,AbstractAdLdapRealmTestCase,Variavel,3.5
+projeto, file ,AbstractAdLdapRealmTestCase,Variavel,3.0
+projeto, client ,AbstractAdLdapRealmTestCase,Variavel,5.0
+projeto, indexResponse ,AbstractAdLdapRealmTestCase,Variavel,5.5
+projeto, getResponse ,AbstractAdLdapRealmTestCase,Variavel,4.5
+projeto, testnodeCert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, testnodeClientProfileCert ,AbstractAdLdapRealmTestCase,Variavel,0.5
+projeto, activedirCert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, testclientCert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, openldapCert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, samba4Cert ,AbstractAdLdapRealmTestCase,Variavel,1.0
+projeto, that ,AbstractAdLdapRealmTestCase,Variavel,3.0
+projeto, result ,AbstractAdLdapRealmTestCase,Variavel,7.0
+projeto, builder ,AbstractAdLdapRealmTestCase,Variavel,2.0
+projeto, name ,AbstractAdLdapRealmTestCase,For,1.0
+projeto, builder ,AbstractAdLdapRealmTestCase,For,2.0
+projeto, response ,AbstractAdLdapRealmTestCase,For,7.0
+projeto, fileContent,RoleMappingEntry,Atributo,3.0
+projeto, nativeContent,RoleMappingEntry,Atributo,3.0
+projeto, that ,RoleMappingEntry,Variavel,3.0
+projeto, result ,RoleMappingEntry,Variavel,7.0
