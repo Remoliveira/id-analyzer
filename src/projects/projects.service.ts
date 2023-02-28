@@ -29,7 +29,7 @@ class ProjectsService {
         {
           owner: projectDto.owner,
           repo: projectDto.repo,
-          ref: 'main',
+          ref: projectDto.branch,
         },
       );
 
@@ -45,18 +45,13 @@ class ProjectsService {
           console.log('done');
         });
 
-      exec('srcml --verbose master.zip -o master.xml', (error, stdout) => {
-        if (error) {
-          console.log(error);
-          process.exit(1);
-        } else {
-          console.log(`The stdout Buffer from shell: ${stdout.toString()}`);
-        }
-      });
+      setTimeout(() => {
+        this.convertToSrcml();
+      }, 2.0 * 1000);
 
       await this.extractIdentifiers();
 
-      await this.algorithmsService.applyFirstAlgorithm();
+      this.algorithmsService.applyAlgorithms();
 
       return {
         message: `The project ${projectDto.repo} is going to be stored `,
@@ -64,6 +59,17 @@ class ProjectsService {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  convertToSrcml(): void {
+    exec('srcml --verbose master.zip -o master.xml', (error, stdout) => {
+      if (error) {
+        console.log(error);
+        process.exit(1);
+      } else {
+        console.log(`The stdout Buffer from shell: ${stdout.toString()}`);
+      }
+    });
   }
 
   async extractIdentifiers(): Promise<void> {

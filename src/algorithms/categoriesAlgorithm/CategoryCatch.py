@@ -1,11 +1,11 @@
 # import mysql.connector
-import re
-import time
-import pandas as pd
 import csv
+import re
+import pandas as pd
 pd.options.display.max_rows = 9999
 
-identificadoresCsv = pd.read_csv('../../Identifiers.csv')
+# identificadoresCsv = pd.read_csv('../../../Identifiers.csv')
+identificadoresCsv = pd.read_csv('Identifiers.csv')
 
 
 def camelSplit(identifier):
@@ -13,8 +13,6 @@ def camelSplit(identifier):
         '.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$|_)', identifier)
     return [m.group(0).replace("_", "") for m in matches]
 
-
-inicio = time.time()
 
 with open('IdentificadoresPosProcessamentoDeCategorira.csv', mode='w') as csv_file:
     fieldnames = ['Identificador', 'Tipo',
@@ -110,7 +108,3 @@ with open('IdentificadoresPosProcessamentoDeCategorira.csv', mode='w') as csv_fi
                         'Categoria': categoria, 'Posicao': posicao, 'Projeto': 'projeto'})
 
         categoria = 0
-
-
-fim = time.time()
-print(fim-inicio)

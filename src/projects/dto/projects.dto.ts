@@ -6,6 +6,9 @@ class ProjectsDTO {
 
   @IsNotEmpty()
   owner: string;
+
+  @IsNotEmpty()
+  branch: string;
 }
 
 export { ProjectsDTO };

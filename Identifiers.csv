@@ -1,144 +1,4015 @@
 nome,tipo,posicao,arquivo,nomeClasse,nomeMetodo
- XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- PASSWORD ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- ASGARDIAN_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- PHILANTHROPISTS_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- SECURITY_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- AD_ROLE_MAPPING , RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- realmConfig,RealmConfig,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- roleMappings,RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- fileContent,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- nativeContent,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- type,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- mapGroupsAsRoles,boolean,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- loginWithCommonName,boolean,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- roleMappings, RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- settings,Settings,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- realm ,RealmConfig,Variavel,test.xml,AbstractAdLdapRealmTestCase,"nodeSettings
+ P ,int,Atributo,master.xml,BetaMinHash,
+ NUM_REGISTERS ,int,Atributo,master.xml,BetaMinHash,
+ Q ,int,Atributo,master.xml,BetaMinHash,
+ R ,int,Atributo,master.xml,BetaMinHash,
+ HASH_SEED ,int,Atributo,master.xml,BetaMinHash,
+ VERSION ,byte,Atributo,master.xml,BetaMinHash,
+ registers, short,Atributo,master.xml,BetaMinHash,
+ registersCopy , short,Variavel,master.xml,BetaMinHash,"deepCopyFromRegisters
 "
- builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"nodeSettings
+ _128BitHash ,long,Variavel,master.xml,BetaMinHash,"offer
 "
- builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"buildRealmSettings
+ buf ,ByteBuffer,Variavel,master.xml,BetaMinHash,"offer
 "
- content ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+ that ,BetaMinHash,Variavel,master.xml,BetaMinHash,"equals
 "
- name ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+ hashLeftHalf ,long,Variavel,master.xml,BetaMinHash,"addHash
 "
- builder ,PutRoleMappingRequestBuilder,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+ registerIndex ,int,Variavel,master.xml,BetaMinHash,"addHash
 "
- response ,PutRoleMappingResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+ leftmostOneBitPosition ,short,Variavel,master.xml,BetaMinHash,"addHash
 "
- templates ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"excludeTemplates
+ rBits ,short,Variavel,master.xml,BetaMinHash,"addHash
 "
- content ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+ packedRegister ,short,Variavel,master.xml,BetaMinHash,"addHash
 "
- nodeFiles ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+ exponent ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
 "
- file ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+ packedRegister ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
 "
- client ,Client,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+ sum,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ zeros,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ saz ,SumAndZeros,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- indexResponse ,IndexResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- getResponse ,GetResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+ zeros ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- testnodeCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ mHat ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- testnodeClientProfileCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ alpha ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- activedirCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
 "
- testclientCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ leadingZeros ,byte,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
 "
- openldapCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ log ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"beta
 "
- samba4Cert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ leadingZeros ,byte,For,master.xml,BetaMinHashCardinalityGetter,
+ sum,double,Atributo,master.xml,SumAndZeros,
+ zeros,double,Atributo,master.xml,SumAndZeros,
+ INSTANCE ,BetaMinHashCombiner,Atributo,master.xml,BetaMinHashCombiner,
+ serialVersionUID ,long,Atributo,master.xml,BetaMinHashCombiner,
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
 "
- that ,RoleMappingEntry,Variavel,test.xml,AbstractAdLdapRealmTestCase,"equals
+ numRegisters ,int,Variavel,master.xml,BetaMinHashCombiner,"union
 "
- result ,int,Variavel,test.xml,AbstractAdLdapRealmTestCase,"hashCode
+ mergedSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
 "
- builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"buildSettings
+ c ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
 "
- name ,String,For,test.xml,AbstractAdLdapRealmTestCase,
- builder ,PutRoleMappingRequestBuilder,For,test.xml,AbstractAdLdapRealmTestCase,
- response ,PutRoleMappingResponse,For,test.xml,AbstractAdLdapRealmTestCase,
- fileContent,String,Atributo,test.xml,RoleMappingEntry,
- nativeContent,String,Atributo,test.xml,RoleMappingEntry,
- that ,RoleMappingEntry,Variavel,test.xml,RoleMappingEntry,"equals
+ n ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
 "
- result ,int,Variavel,test.xml,RoleMappingEntry,"hashCode
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"similarity
 "
+ itemInIntersection ,boolean,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ p ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ q ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ r ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ numExpectedCollisions ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ itemInIntersection ,boolean,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ product ,double,For,master.xml,BetaMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,BetaMinHashCombiner,
+ sketch ,BetaMinHash,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ registers ,short,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ inputBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ version ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ byteBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"toBytes
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"longToBits
+"
+ bits ,boolean,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"getRightmostBits
+"
+ out ,long,Variavel,master.xml,BitHelper,"bitsToLong
+"
+ _2toTheQ ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ offset ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ byteLen ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ bytes ,byte,Variavel,master.xml,BitHelper,"getBytes
+"
+ exp ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ byteIndex ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ output ,boolean,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ mask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ i ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ boolIndex ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,For,master.xml,BitHelper,
+ boolIndex ,int,For,master.xml,BitHelper,
+ serialVersionUID ,long,Atributo,master.xml,HmhCardinalityEstimator,
+ MIN_P ,int,Atributo,master.xml,HmhCardinalityEstimator,
+ rawEstimateData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ biasData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ hllEstimateTreshold , double,Atributo,master.xml,HmhCardinalityEstimator,
+ basicEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ numZeroRegisters ,int,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ linearCountingEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ estimatesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ biasesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"useLinearCounting
+"
+ denominator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ numerator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ indexesByDifference ,SortedMap,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ ascDiffIter ,Double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ minDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ smallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ firstIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"alpha
+"
+ linearCountingEstimate ,long,if,master.xml,HmhCardinalityEstimator,
+ VERSION ,byte,Atributo,master.xml,HyperMinHash,
+ registers,Registers,Atributo,master.xml,HyperMinHash,
+ p,int,Atributo,master.xml,HyperMinHash,
+ numZeroSearchBits,int,Atributo,master.xml,HyperMinHash,
+ r,int,Atributo,master.xml,HyperMinHash,
+ hash , long,Variavel,master.xml,HyperMinHash,"offer
+"
+ hllHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ registerIndex ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ zeroSearchSpace ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ leftmostOnePosition ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ hmhHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ minHashBits ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ incomingRegister ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ that ,HyperMinHash,Variavel,master.xml,HyperMinHash,"equals
+"
+ result ,int,Variavel,master.xml,HyperMinHash,"hashCode
+"
+ instance ,HyperMinHashCombiner,Atributo,master.xml,HyperMinHashCombiner,
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ mergedSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ c ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ n ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ numRegisters ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ itemInIntersection ,boolean,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ p ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ numZeroSearchBits ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ r ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ itemInIntersection ,boolean,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ product ,double,For,master.xml,HyperMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,HyperMinHashCombiner,
+ sketch ,HyperMinHash,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ inputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ version ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ p ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ r ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registers,Registers,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,long,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ outputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ longRegisters ,LongRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ intRegisters ,IntRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerSizeInBytes,int,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerValues ,long,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ registerValues ,int,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ longRegisters ,LongRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,long,if,master.xml,HyperMinHashSerDe,
+ intRegisters ,IntRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,int,if,master.xml,HyperMinHashSerDe,
+ registers, int,Atributo,master.xml,IntRegisters,
+ p,int,Atributo,master.xml,IntRegisters,
+ r,int,Atributo,master.xml,IntRegisters,
+ intIncomingRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,IntRegisters,"getNumZeroRegisters
+"
+ that ,IntRegisters,Variavel,master.xml,IntRegisters,"equals
+"
+ result ,int,Variavel,master.xml,IntRegisters,"hashCode
+"
+ currentMantissa ,int,if,master.xml,IntRegisters,
+ incomingMantissa ,int,if,master.xml,IntRegisters,
+ registers, long,Atributo,master.xml,LongRegisters,
+ p,int,Atributo,master.xml,LongRegisters,
+ r,int,Atributo,master.xml,LongRegisters,
+ currentRegister ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,LongRegisters,"getNumZeroRegisters
+"
+ that ,LongRegisters,Variavel,master.xml,LongRegisters,"equals
+"
+ result ,int,Variavel,master.xml,LongRegisters,"hashCode
+"
+ currentMantissa ,long,if,master.xml,LongRegisters,
+ incomingMantissa ,long,if,master.xml,LongRegisters,
+ NULL_HASHCODE ,long,Atributo,master.xml,Murmur3,
+ C1_32 ,int,Atributo,master.xml,Murmur3,
+ C2_32 ,int,Atributo,master.xml,Murmur3,
+ R1_32 ,int,Atributo,master.xml,Murmur3,
+ R2_32 ,int,Atributo,master.xml,Murmur3,
+ M_32 ,int,Atributo,master.xml,Murmur3,
+ N_32 ,int,Atributo,master.xml,Murmur3,
+ C1 ,long,Atributo,master.xml,Murmur3,
+ C2 ,long,Atributo,master.xml,Murmur3,
+ R1 ,int,Atributo,master.xml,Murmur3,
+ R2 ,int,Atributo,master.xml,Murmur3,
+ R3 ,int,Atributo,master.xml,Murmur3,
+ M ,int,Atributo,master.xml,Murmur3,
+ N1 ,int,Atributo,master.xml,Murmur3,
+ N2 ,int,Atributo,master.xml,Murmur3,
+ DEFAULT_SEED ,int,Atributo,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,Murmur3,
+ tailLen,int,Atributo,master.xml,Murmur3,
+ totalLen,int,Atributo,master.xml,Murmur3,
+ hash,int,Atributo,master.xml,Murmur3,
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ r1 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ idx ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ i8 ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ h1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ h2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ i16 ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ offset2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ length2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"add
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ consumed ,int,Variavel,master.xml,Murmur3,"add
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"end
+"
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ i8 ,int,For,master.xml,Murmur3,
+ k ,long,For,master.xml,Murmur3,
+ i16 ,int,For,master.xml,Murmur3,
+ k1 ,long,For,master.xml,Murmur3,
+ k2 ,long,For,master.xml,Murmur3,
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ k ,int,if,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,IncrementalHash32,
+ tailLen,int,Atributo,master.xml,IncrementalHash32,
+ totalLen,int,Atributo,master.xml,IncrementalHash32,
+ hash,int,Atributo,master.xml,IncrementalHash32,
+ offset2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ length2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ nblocks ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ i_4 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ consumed ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k1 ,int,Variavel,master.xml,IncrementalHash32,"end
+"
+ i_4 ,int,For,master.xml,IncrementalHash32,
+ k ,int,For,master.xml,IncrementalHash32,
+ k ,int,if,master.xml,IncrementalHash32,
+ NUM_THREADS ,int,Atributo,master.xml,DemoBetaMinHash,
+ threadPool ,ExecutorService,Atributo,master.xml,DemoBetaMinHash,
+ rng ,Random,Atributo,master.xml,DemoBetaMinHash,
+ out ,long,Variavel,master.xml,DemoBetaMinHash,"getSketchSizes
+"
+ jac ,double,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ unionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ intersectionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketchSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketches ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ exactUnionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sum ,long,Variavel,master.xml,DemoBetaMinHash,"sum
+"
+ out ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ counter ,long,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"getFormattedHeader
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"headerWithDelimiter
+"
+ pct ,double,Variavel,master.xml,DemoBetaMinHash,"plusMinusThreePercent
+"
+ jac ,double,For,master.xml,DemoBetaMinHash,
+ unionSize ,long,For,master.xml,DemoBetaMinHash,
+ intersectionSize ,long,For,master.xml,DemoBetaMinHash,
+ sketchSize ,long,For,master.xml,DemoBetaMinHash,
+ val ,byte,For,master.xml,DemoBetaMinHash,
+ delta ,long,Variavel,master.xml,CommonTests,"getError
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testCardinality
+"
+ assertionCheckpoint ,int,Variavel,master.xml,CommonTests,"testCardinality
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testCardinality
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ res ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testCardinality
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testUnion
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testUnion
+"
+ msk ,Sketch,Variavel,master.xml,CommonTests,"testUnion
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ res ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testUnion
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ frac ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ expected ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ result ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ smallSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ bigSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedJaccardIndex ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ sketchSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ intersectionSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk3 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk4 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ numIter ,long,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ n ,int,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ b ,byte,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ bytes ,byte,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ frac ,double,For,master.xml,CommonTests,
+ expected ,long,For,master.xml,CommonTests,
+ result ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ sk3 ,Sketch,For,master.xml,CommonTests,
+ sk4 ,Sketch,For,master.xml,CommonTests,
+ expectedIntersection ,long,For,master.xml,CommonTests,
+ actualIntersection ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ val ,byte,For,master.xml,CommonTests,
+ bytes ,byte,while,master.xml,CommonTests,
+ exact ,long,while,master.xml,CommonTests,
+ res ,long,while,master.xml,CommonTests,
+ pctError ,double,while,master.xml,CommonTests,
+ exact ,long,if,master.xml,CommonTests,
+ res ,long,if,master.xml,CommonTests,
+ pctError ,double,if,master.xml,CommonTests,
+ sketch ,Sketch,if,master.xml,CommonTests,
+ rng ,Random,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,For,master.xml,RandomTestRunner,
+ sk ,BetaMinHash,Variavel,master.xml,TestBetaMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ bigSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ maxPctErr ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestBetaMinHash,
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestBetaMinHashSerde,"randomByteArrayOfLength
+"
+ rawEstimates , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ biases , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ basicEstimate ,long,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ slope ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ expectedOutput ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ actualEstimate ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ sk ,HyperMinHash,Variavel,master.xml,TestHyperMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ combiner ,HyperMinHashCombiner,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ hyperMinHash ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestHyperMinHashSerDe,"randomByteArrayOfLength
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ minHashBits ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ packedRegister ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ minHashBits ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ packedRegister ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,long,For,master.xml,TestPackers,
+ packedRegister ,long,For,master.xml,TestPackers,
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,int,For,master.xml,TestPackers,
+ packedRegister ,int,For,master.xml,TestPackers,
 nome,tipo,posicao,arquivo,nomeClasse,nomeMetodo
- XPACK_SECURITY_AUTHC_REALMS_AD_EXTERNAL ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- XPACK_SECURITY_AUTHC_REALMS_LDAP_EXTERNAL ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- PASSWORD ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- ASGARDIAN_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- PHILANTHROPISTS_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- SECURITY_INDEX ,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- AD_ROLE_MAPPING , RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- realmConfig,RealmConfig,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- roleMappings,RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- fileContent,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- nativeContent,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- type,String,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- mapGroupsAsRoles,boolean,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- loginWithCommonName,boolean,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- roleMappings, RoleMappingEntry,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- settings,Settings,Atributo,test.xml,AbstractAdLdapRealmTestCase,
- realm ,RealmConfig,Variavel,test.xml,AbstractAdLdapRealmTestCase,"nodeSettings
+ P ,int,Atributo,master.xml,BetaMinHash,
+ NUM_REGISTERS ,int,Atributo,master.xml,BetaMinHash,
+ Q ,int,Atributo,master.xml,BetaMinHash,
+ R ,int,Atributo,master.xml,BetaMinHash,
+ HASH_SEED ,int,Atributo,master.xml,BetaMinHash,
+ VERSION ,byte,Atributo,master.xml,BetaMinHash,
+ registers, short,Atributo,master.xml,BetaMinHash,
+ registersCopy , short,Variavel,master.xml,BetaMinHash,"deepCopyFromRegisters
 "
- builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"nodeSettings
+ _128BitHash ,long,Variavel,master.xml,BetaMinHash,"offer
 "
- builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"buildRealmSettings
+ buf ,ByteBuffer,Variavel,master.xml,BetaMinHash,"offer
 "
- content ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+ that ,BetaMinHash,Variavel,master.xml,BetaMinHash,"equals
 "
- name ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+ hashLeftHalf ,long,Variavel,master.xml,BetaMinHash,"addHash
 "
- builder ,PutRoleMappingRequestBuilder,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+ registerIndex ,int,Variavel,master.xml,BetaMinHash,"addHash
 "
- response ,PutRoleMappingResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"setupRoleMappings
+ leftmostOneBitPosition ,short,Variavel,master.xml,BetaMinHash,"addHash
 "
- templates ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"excludeTemplates
+ rBits ,short,Variavel,master.xml,BetaMinHash,"addHash
 "
- content ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+ packedRegister ,short,Variavel,master.xml,BetaMinHash,"addHash
 "
- nodeFiles ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+ exponent ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
 "
- file ,String,Variavel,test.xml,AbstractAdLdapRealmTestCase,"configureFileRoleMappings
+ packedRegister ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
 "
- client ,Client,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+ sum,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ zeros,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ saz ,SumAndZeros,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- indexResponse ,IndexResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- getResponse ,GetResponse,Variavel,test.xml,AbstractAdLdapRealmTestCase,"assertAccessAllowed
+ zeros ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- testnodeCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ mHat ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- testnodeClientProfileCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ alpha ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
 "
- activedirCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
 "
- testclientCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ leadingZeros ,byte,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
 "
- openldapCert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ log ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"beta
 "
- samba4Cert ,Path,Variavel,test.xml,AbstractAdLdapRealmTestCase,"getNodeTrustedCertificates
+ leadingZeros ,byte,For,master.xml,BetaMinHashCardinalityGetter,
+ sum,double,Atributo,master.xml,SumAndZeros,
+ zeros,double,Atributo,master.xml,SumAndZeros,
+ INSTANCE ,BetaMinHashCombiner,Atributo,master.xml,BetaMinHashCombiner,
+ serialVersionUID ,long,Atributo,master.xml,BetaMinHashCombiner,
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
 "
- that ,RoleMappingEntry,Variavel,test.xml,AbstractAdLdapRealmTestCase,"equals
+ numRegisters ,int,Variavel,master.xml,BetaMinHashCombiner,"union
 "
- result ,int,Variavel,test.xml,AbstractAdLdapRealmTestCase,"hashCode
+ mergedSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
 "
- builder ,Settings,Variavel,test.xml,AbstractAdLdapRealmTestCase,"buildSettings
+ c ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
 "
- name ,String,For,test.xml,AbstractAdLdapRealmTestCase,
- builder ,PutRoleMappingRequestBuilder,For,test.xml,AbstractAdLdapRealmTestCase,
- response ,PutRoleMappingResponse,For,test.xml,AbstractAdLdapRealmTestCase,
- fileContent,String,Atributo,test.xml,RoleMappingEntry,
- nativeContent,String,Atributo,test.xml,RoleMappingEntry,
- that ,RoleMappingEntry,Variavel,test.xml,RoleMappingEntry,"equals
+ n ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
 "
- result ,int,Variavel,test.xml,RoleMappingEntry,"hashCode
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"similarity
 "
+ itemInIntersection ,boolean,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ p ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ q ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ r ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ numExpectedCollisions ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ itemInIntersection ,boolean,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ product ,double,For,master.xml,BetaMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,BetaMinHashCombiner,
+ sketch ,BetaMinHash,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ registers ,short,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ inputBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ version ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ byteBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"toBytes
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"longToBits
+"
+ bits ,boolean,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"getRightmostBits
+"
+ out ,long,Variavel,master.xml,BitHelper,"bitsToLong
+"
+ _2toTheQ ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ offset ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ byteLen ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ bytes ,byte,Variavel,master.xml,BitHelper,"getBytes
+"
+ exp ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ byteIndex ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ output ,boolean,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ mask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ i ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ boolIndex ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,For,master.xml,BitHelper,
+ boolIndex ,int,For,master.xml,BitHelper,
+ serialVersionUID ,long,Atributo,master.xml,HmhCardinalityEstimator,
+ MIN_P ,int,Atributo,master.xml,HmhCardinalityEstimator,
+ rawEstimateData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ biasData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ hllEstimateTreshold , double,Atributo,master.xml,HmhCardinalityEstimator,
+ basicEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ numZeroRegisters ,int,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ linearCountingEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ estimatesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ biasesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"useLinearCounting
+"
+ denominator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ numerator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ indexesByDifference ,SortedMap,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ ascDiffIter ,Double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ minDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ smallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ firstIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"alpha
+"
+ linearCountingEstimate ,long,if,master.xml,HmhCardinalityEstimator,
+ VERSION ,byte,Atributo,master.xml,HyperMinHash,
+ registers,Registers,Atributo,master.xml,HyperMinHash,
+ p,int,Atributo,master.xml,HyperMinHash,
+ numZeroSearchBits,int,Atributo,master.xml,HyperMinHash,
+ r,int,Atributo,master.xml,HyperMinHash,
+ hash , long,Variavel,master.xml,HyperMinHash,"offer
+"
+ hllHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ registerIndex ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ zeroSearchSpace ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ leftmostOnePosition ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ hmhHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ minHashBits ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ incomingRegister ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ that ,HyperMinHash,Variavel,master.xml,HyperMinHash,"equals
+"
+ result ,int,Variavel,master.xml,HyperMinHash,"hashCode
+"
+ instance ,HyperMinHashCombiner,Atributo,master.xml,HyperMinHashCombiner,
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ mergedSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ c ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ n ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ numRegisters ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ itemInIntersection ,boolean,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ p ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ numZeroSearchBits ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ r ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ itemInIntersection ,boolean,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ product ,double,For,master.xml,HyperMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,HyperMinHashCombiner,
+ sketch ,HyperMinHash,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ inputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ version ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ p ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ r ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registers,Registers,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,long,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ outputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ longRegisters ,LongRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ intRegisters ,IntRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerSizeInBytes,int,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerValues ,long,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ registerValues ,int,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ longRegisters ,LongRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,long,if,master.xml,HyperMinHashSerDe,
+ intRegisters ,IntRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,int,if,master.xml,HyperMinHashSerDe,
+ registers, int,Atributo,master.xml,IntRegisters,
+ p,int,Atributo,master.xml,IntRegisters,
+ r,int,Atributo,master.xml,IntRegisters,
+ intIncomingRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,IntRegisters,"getNumZeroRegisters
+"
+ that ,IntRegisters,Variavel,master.xml,IntRegisters,"equals
+"
+ result ,int,Variavel,master.xml,IntRegisters,"hashCode
+"
+ currentMantissa ,int,if,master.xml,IntRegisters,
+ incomingMantissa ,int,if,master.xml,IntRegisters,
+ registers, long,Atributo,master.xml,LongRegisters,
+ p,int,Atributo,master.xml,LongRegisters,
+ r,int,Atributo,master.xml,LongRegisters,
+ currentRegister ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,LongRegisters,"getNumZeroRegisters
+"
+ that ,LongRegisters,Variavel,master.xml,LongRegisters,"equals
+"
+ result ,int,Variavel,master.xml,LongRegisters,"hashCode
+"
+ currentMantissa ,long,if,master.xml,LongRegisters,
+ incomingMantissa ,long,if,master.xml,LongRegisters,
+ NULL_HASHCODE ,long,Atributo,master.xml,Murmur3,
+ C1_32 ,int,Atributo,master.xml,Murmur3,
+ C2_32 ,int,Atributo,master.xml,Murmur3,
+ R1_32 ,int,Atributo,master.xml,Murmur3,
+ R2_32 ,int,Atributo,master.xml,Murmur3,
+ M_32 ,int,Atributo,master.xml,Murmur3,
+ N_32 ,int,Atributo,master.xml,Murmur3,
+ C1 ,long,Atributo,master.xml,Murmur3,
+ C2 ,long,Atributo,master.xml,Murmur3,
+ R1 ,int,Atributo,master.xml,Murmur3,
+ R2 ,int,Atributo,master.xml,Murmur3,
+ R3 ,int,Atributo,master.xml,Murmur3,
+ M ,int,Atributo,master.xml,Murmur3,
+ N1 ,int,Atributo,master.xml,Murmur3,
+ N2 ,int,Atributo,master.xml,Murmur3,
+ DEFAULT_SEED ,int,Atributo,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,Murmur3,
+ tailLen,int,Atributo,master.xml,Murmur3,
+ totalLen,int,Atributo,master.xml,Murmur3,
+ hash,int,Atributo,master.xml,Murmur3,
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ r1 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ idx ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ i8 ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ h1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ h2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ i16 ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ offset2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ length2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"add
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ consumed ,int,Variavel,master.xml,Murmur3,"add
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"end
+"
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ i8 ,int,For,master.xml,Murmur3,
+ k ,long,For,master.xml,Murmur3,
+ i16 ,int,For,master.xml,Murmur3,
+ k1 ,long,For,master.xml,Murmur3,
+ k2 ,long,For,master.xml,Murmur3,
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ k ,int,if,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,IncrementalHash32,
+ tailLen,int,Atributo,master.xml,IncrementalHash32,
+ totalLen,int,Atributo,master.xml,IncrementalHash32,
+ hash,int,Atributo,master.xml,IncrementalHash32,
+ offset2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ length2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ nblocks ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ i_4 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ consumed ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k1 ,int,Variavel,master.xml,IncrementalHash32,"end
+"
+ i_4 ,int,For,master.xml,IncrementalHash32,
+ k ,int,For,master.xml,IncrementalHash32,
+ k ,int,if,master.xml,IncrementalHash32,
+ NUM_THREADS ,int,Atributo,master.xml,DemoBetaMinHash,
+ threadPool ,ExecutorService,Atributo,master.xml,DemoBetaMinHash,
+ rng ,Random,Atributo,master.xml,DemoBetaMinHash,
+ out ,long,Variavel,master.xml,DemoBetaMinHash,"getSketchSizes
+"
+ jac ,double,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ unionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ intersectionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketchSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketches ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ exactUnionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sum ,long,Variavel,master.xml,DemoBetaMinHash,"sum
+"
+ out ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ counter ,long,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"getFormattedHeader
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"headerWithDelimiter
+"
+ pct ,double,Variavel,master.xml,DemoBetaMinHash,"plusMinusThreePercent
+"
+ jac ,double,For,master.xml,DemoBetaMinHash,
+ unionSize ,long,For,master.xml,DemoBetaMinHash,
+ intersectionSize ,long,For,master.xml,DemoBetaMinHash,
+ sketchSize ,long,For,master.xml,DemoBetaMinHash,
+ val ,byte,For,master.xml,DemoBetaMinHash,
+ delta ,long,Variavel,master.xml,CommonTests,"getError
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testCardinality
+"
+ assertionCheckpoint ,int,Variavel,master.xml,CommonTests,"testCardinality
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testCardinality
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ res ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testCardinality
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testUnion
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testUnion
+"
+ msk ,Sketch,Variavel,master.xml,CommonTests,"testUnion
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ res ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testUnion
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ frac ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ expected ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ result ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ smallSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ bigSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedJaccardIndex ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ sketchSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ intersectionSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk3 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk4 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ numIter ,long,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ n ,int,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ b ,byte,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ bytes ,byte,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ frac ,double,For,master.xml,CommonTests,
+ expected ,long,For,master.xml,CommonTests,
+ result ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ sk3 ,Sketch,For,master.xml,CommonTests,
+ sk4 ,Sketch,For,master.xml,CommonTests,
+ expectedIntersection ,long,For,master.xml,CommonTests,
+ actualIntersection ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ val ,byte,For,master.xml,CommonTests,
+ bytes ,byte,while,master.xml,CommonTests,
+ exact ,long,while,master.xml,CommonTests,
+ res ,long,while,master.xml,CommonTests,
+ pctError ,double,while,master.xml,CommonTests,
+ exact ,long,if,master.xml,CommonTests,
+ res ,long,if,master.xml,CommonTests,
+ pctError ,double,if,master.xml,CommonTests,
+ sketch ,Sketch,if,master.xml,CommonTests,
+ rng ,Random,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,For,master.xml,RandomTestRunner,
+ sk ,BetaMinHash,Variavel,master.xml,TestBetaMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ bigSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ maxPctErr ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestBetaMinHash,
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestBetaMinHashSerde,"randomByteArrayOfLength
+"
+ rawEstimates , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ biases , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ basicEstimate ,long,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ slope ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ expectedOutput ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ actualEstimate ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ sk ,HyperMinHash,Variavel,master.xml,TestHyperMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ combiner ,HyperMinHashCombiner,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ hyperMinHash ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestHyperMinHashSerDe,"randomByteArrayOfLength
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ minHashBits ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ packedRegister ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ minHashBits ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ packedRegister ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,long,For,master.xml,TestPackers,
+ packedRegister ,long,For,master.xml,TestPackers,
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,int,For,master.xml,TestPackers,
+ packedRegister ,int,For,master.xml,TestPackers,
+nome,tipo,posicao,arquivo,nomeClasse,nomeMetodo
+ P ,int,Atributo,master.xml,BetaMinHash,
+ NUM_REGISTERS ,int,Atributo,master.xml,BetaMinHash,
+ Q ,int,Atributo,master.xml,BetaMinHash,
+ R ,int,Atributo,master.xml,BetaMinHash,
+ HASH_SEED ,int,Atributo,master.xml,BetaMinHash,
+ VERSION ,byte,Atributo,master.xml,BetaMinHash,
+ registers, short,Atributo,master.xml,BetaMinHash,
+ registersCopy , short,Variavel,master.xml,BetaMinHash,"deepCopyFromRegisters
+"
+ _128BitHash ,long,Variavel,master.xml,BetaMinHash,"offer
+"
+ buf ,ByteBuffer,Variavel,master.xml,BetaMinHash,"offer
+"
+ that ,BetaMinHash,Variavel,master.xml,BetaMinHash,"equals
+"
+ hashLeftHalf ,long,Variavel,master.xml,BetaMinHash,"addHash
+"
+ registerIndex ,int,Variavel,master.xml,BetaMinHash,"addHash
+"
+ leftmostOneBitPosition ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ rBits ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ packedRegister ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ exponent ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
+"
+ packedRegister ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
+"
+ sum,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ zeros,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ saz ,SumAndZeros,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ zeros ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ mHat ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ alpha ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
+"
+ leadingZeros ,byte,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
+"
+ log ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"beta
+"
+ leadingZeros ,byte,For,master.xml,BetaMinHashCardinalityGetter,
+ sum,double,Atributo,master.xml,SumAndZeros,
+ zeros,double,Atributo,master.xml,SumAndZeros,
+ INSTANCE ,BetaMinHashCombiner,Atributo,master.xml,BetaMinHashCombiner,
+ serialVersionUID ,long,Atributo,master.xml,BetaMinHashCombiner,
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ numRegisters ,int,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ mergedSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ c ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ n ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ itemInIntersection ,boolean,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ p ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ q ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ r ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ numExpectedCollisions ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ itemInIntersection ,boolean,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ product ,double,For,master.xml,BetaMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,BetaMinHashCombiner,
+ sketch ,BetaMinHash,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ registers ,short,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ inputBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ version ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ byteBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"toBytes
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"longToBits
+"
+ bits ,boolean,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"getRightmostBits
+"
+ out ,long,Variavel,master.xml,BitHelper,"bitsToLong
+"
+ _2toTheQ ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ offset ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ byteLen ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ bytes ,byte,Variavel,master.xml,BitHelper,"getBytes
+"
+ exp ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ byteIndex ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ output ,boolean,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ mask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ i ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ boolIndex ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,For,master.xml,BitHelper,
+ boolIndex ,int,For,master.xml,BitHelper,
+ serialVersionUID ,long,Atributo,master.xml,HmhCardinalityEstimator,
+ MIN_P ,int,Atributo,master.xml,HmhCardinalityEstimator,
+ rawEstimateData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ biasData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ hllEstimateTreshold , double,Atributo,master.xml,HmhCardinalityEstimator,
+ basicEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ numZeroRegisters ,int,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ linearCountingEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ estimatesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ biasesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"useLinearCounting
+"
+ denominator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ numerator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ indexesByDifference ,SortedMap,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ ascDiffIter ,Double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ minDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ smallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ firstIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"alpha
+"
+ linearCountingEstimate ,long,if,master.xml,HmhCardinalityEstimator,
+ VERSION ,byte,Atributo,master.xml,HyperMinHash,
+ registers,Registers,Atributo,master.xml,HyperMinHash,
+ p,int,Atributo,master.xml,HyperMinHash,
+ numZeroSearchBits,int,Atributo,master.xml,HyperMinHash,
+ r,int,Atributo,master.xml,HyperMinHash,
+ hash , long,Variavel,master.xml,HyperMinHash,"offer
+"
+ hllHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ registerIndex ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ zeroSearchSpace ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ leftmostOnePosition ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ hmhHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ minHashBits ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ incomingRegister ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ that ,HyperMinHash,Variavel,master.xml,HyperMinHash,"equals
+"
+ result ,int,Variavel,master.xml,HyperMinHash,"hashCode
+"
+ instance ,HyperMinHashCombiner,Atributo,master.xml,HyperMinHashCombiner,
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ mergedSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ c ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ n ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ numRegisters ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ itemInIntersection ,boolean,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ p ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ numZeroSearchBits ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ r ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ itemInIntersection ,boolean,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ product ,double,For,master.xml,HyperMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,HyperMinHashCombiner,
+ sketch ,HyperMinHash,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ inputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ version ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ p ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ r ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registers,Registers,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,long,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ outputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ longRegisters ,LongRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ intRegisters ,IntRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerSizeInBytes,int,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerValues ,long,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ registerValues ,int,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ longRegisters ,LongRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,long,if,master.xml,HyperMinHashSerDe,
+ intRegisters ,IntRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,int,if,master.xml,HyperMinHashSerDe,
+ registers, int,Atributo,master.xml,IntRegisters,
+ p,int,Atributo,master.xml,IntRegisters,
+ r,int,Atributo,master.xml,IntRegisters,
+ intIncomingRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,IntRegisters,"getNumZeroRegisters
+"
+ that ,IntRegisters,Variavel,master.xml,IntRegisters,"equals
+"
+ result ,int,Variavel,master.xml,IntRegisters,"hashCode
+"
+ currentMantissa ,int,if,master.xml,IntRegisters,
+ incomingMantissa ,int,if,master.xml,IntRegisters,
+ registers, long,Atributo,master.xml,LongRegisters,
+ p,int,Atributo,master.xml,LongRegisters,
+ r,int,Atributo,master.xml,LongRegisters,
+ currentRegister ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,LongRegisters,"getNumZeroRegisters
+"
+ that ,LongRegisters,Variavel,master.xml,LongRegisters,"equals
+"
+ result ,int,Variavel,master.xml,LongRegisters,"hashCode
+"
+ currentMantissa ,long,if,master.xml,LongRegisters,
+ incomingMantissa ,long,if,master.xml,LongRegisters,
+ NULL_HASHCODE ,long,Atributo,master.xml,Murmur3,
+ C1_32 ,int,Atributo,master.xml,Murmur3,
+ C2_32 ,int,Atributo,master.xml,Murmur3,
+ R1_32 ,int,Atributo,master.xml,Murmur3,
+ R2_32 ,int,Atributo,master.xml,Murmur3,
+ M_32 ,int,Atributo,master.xml,Murmur3,
+ N_32 ,int,Atributo,master.xml,Murmur3,
+ C1 ,long,Atributo,master.xml,Murmur3,
+ C2 ,long,Atributo,master.xml,Murmur3,
+ R1 ,int,Atributo,master.xml,Murmur3,
+ R2 ,int,Atributo,master.xml,Murmur3,
+ R3 ,int,Atributo,master.xml,Murmur3,
+ M ,int,Atributo,master.xml,Murmur3,
+ N1 ,int,Atributo,master.xml,Murmur3,
+ N2 ,int,Atributo,master.xml,Murmur3,
+ DEFAULT_SEED ,int,Atributo,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,Murmur3,
+ tailLen,int,Atributo,master.xml,Murmur3,
+ totalLen,int,Atributo,master.xml,Murmur3,
+ hash,int,Atributo,master.xml,Murmur3,
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ r1 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ idx ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ i8 ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ h1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ h2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ i16 ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ offset2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ length2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"add
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ consumed ,int,Variavel,master.xml,Murmur3,"add
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"end
+"
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ i8 ,int,For,master.xml,Murmur3,
+ k ,long,For,master.xml,Murmur3,
+ i16 ,int,For,master.xml,Murmur3,
+ k1 ,long,For,master.xml,Murmur3,
+ k2 ,long,For,master.xml,Murmur3,
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ k ,int,if,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,IncrementalHash32,
+ tailLen,int,Atributo,master.xml,IncrementalHash32,
+ totalLen,int,Atributo,master.xml,IncrementalHash32,
+ hash,int,Atributo,master.xml,IncrementalHash32,
+ offset2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ length2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ nblocks ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ i_4 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ consumed ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k1 ,int,Variavel,master.xml,IncrementalHash32,"end
+"
+ i_4 ,int,For,master.xml,IncrementalHash32,
+ k ,int,For,master.xml,IncrementalHash32,
+ k ,int,if,master.xml,IncrementalHash32,
+ NUM_THREADS ,int,Atributo,master.xml,DemoBetaMinHash,
+ threadPool ,ExecutorService,Atributo,master.xml,DemoBetaMinHash,
+ rng ,Random,Atributo,master.xml,DemoBetaMinHash,
+ out ,long,Variavel,master.xml,DemoBetaMinHash,"getSketchSizes
+"
+ jac ,double,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ unionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ intersectionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketchSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketches ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ exactUnionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sum ,long,Variavel,master.xml,DemoBetaMinHash,"sum
+"
+ out ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ counter ,long,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"getFormattedHeader
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"headerWithDelimiter
+"
+ pct ,double,Variavel,master.xml,DemoBetaMinHash,"plusMinusThreePercent
+"
+ jac ,double,For,master.xml,DemoBetaMinHash,
+ unionSize ,long,For,master.xml,DemoBetaMinHash,
+ intersectionSize ,long,For,master.xml,DemoBetaMinHash,
+ sketchSize ,long,For,master.xml,DemoBetaMinHash,
+ val ,byte,For,master.xml,DemoBetaMinHash,
+ delta ,long,Variavel,master.xml,CommonTests,"getError
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testCardinality
+"
+ assertionCheckpoint ,int,Variavel,master.xml,CommonTests,"testCardinality
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testCardinality
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ res ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testCardinality
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testUnion
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testUnion
+"
+ msk ,Sketch,Variavel,master.xml,CommonTests,"testUnion
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ res ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testUnion
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ frac ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ expected ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ result ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ smallSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ bigSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedJaccardIndex ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ sketchSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ intersectionSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk3 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk4 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ numIter ,long,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ n ,int,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ b ,byte,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ bytes ,byte,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ frac ,double,For,master.xml,CommonTests,
+ expected ,long,For,master.xml,CommonTests,
+ result ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ sk3 ,Sketch,For,master.xml,CommonTests,
+ sk4 ,Sketch,For,master.xml,CommonTests,
+ expectedIntersection ,long,For,master.xml,CommonTests,
+ actualIntersection ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ val ,byte,For,master.xml,CommonTests,
+ bytes ,byte,while,master.xml,CommonTests,
+ exact ,long,while,master.xml,CommonTests,
+ res ,long,while,master.xml,CommonTests,
+ pctError ,double,while,master.xml,CommonTests,
+ exact ,long,if,master.xml,CommonTests,
+ res ,long,if,master.xml,CommonTests,
+ pctError ,double,if,master.xml,CommonTests,
+ sketch ,Sketch,if,master.xml,CommonTests,
+ rng ,Random,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,For,master.xml,RandomTestRunner,
+ sk ,BetaMinHash,Variavel,master.xml,TestBetaMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ bigSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ maxPctErr ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestBetaMinHash,
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestBetaMinHashSerde,"randomByteArrayOfLength
+"
+ rawEstimates , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ biases , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ basicEstimate ,long,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ slope ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ expectedOutput ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ actualEstimate ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ sk ,HyperMinHash,Variavel,master.xml,TestHyperMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ combiner ,HyperMinHashCombiner,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ hyperMinHash ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestHyperMinHashSerDe,"randomByteArrayOfLength
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ minHashBits ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ packedRegister ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ minHashBits ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ packedRegister ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,long,For,master.xml,TestPackers,
+ packedRegister ,long,For,master.xml,TestPackers,
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,int,For,master.xml,TestPackers,
+ packedRegister ,int,For,master.xml,TestPackers,
+nome,tipo,posicao,arquivo,nomeClasse,nomeMetodo
+ P ,int,Atributo,master.xml,BetaMinHash,
+ NUM_REGISTERS ,int,Atributo,master.xml,BetaMinHash,
+ Q ,int,Atributo,master.xml,BetaMinHash,
+ R ,int,Atributo,master.xml,BetaMinHash,
+ HASH_SEED ,int,Atributo,master.xml,BetaMinHash,
+ VERSION ,byte,Atributo,master.xml,BetaMinHash,
+ registers, short,Atributo,master.xml,BetaMinHash,
+ registersCopy , short,Variavel,master.xml,BetaMinHash,"deepCopyFromRegisters
+"
+ _128BitHash ,long,Variavel,master.xml,BetaMinHash,"offer
+"
+ buf ,ByteBuffer,Variavel,master.xml,BetaMinHash,"offer
+"
+ that ,BetaMinHash,Variavel,master.xml,BetaMinHash,"equals
+"
+ hashLeftHalf ,long,Variavel,master.xml,BetaMinHash,"addHash
+"
+ registerIndex ,int,Variavel,master.xml,BetaMinHash,"addHash
+"
+ leftmostOneBitPosition ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ rBits ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ packedRegister ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ exponent ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
+"
+ packedRegister ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
+"
+ sum,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ zeros,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ saz ,SumAndZeros,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ zeros ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ mHat ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ alpha ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
+"
+ leadingZeros ,byte,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
+"
+ log ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"beta
+"
+ leadingZeros ,byte,For,master.xml,BetaMinHashCardinalityGetter,
+ sum,double,Atributo,master.xml,SumAndZeros,
+ zeros,double,Atributo,master.xml,SumAndZeros,
+ INSTANCE ,BetaMinHashCombiner,Atributo,master.xml,BetaMinHashCombiner,
+ serialVersionUID ,long,Atributo,master.xml,BetaMinHashCombiner,
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ numRegisters ,int,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ mergedSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ c ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ n ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ itemInIntersection ,boolean,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ p ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ q ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ r ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ numExpectedCollisions ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ itemInIntersection ,boolean,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ product ,double,For,master.xml,BetaMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,BetaMinHashCombiner,
+ sketch ,BetaMinHash,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ registers ,short,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ inputBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ version ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ byteBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"toBytes
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"longToBits
+"
+ bits ,boolean,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"getRightmostBits
+"
+ out ,long,Variavel,master.xml,BitHelper,"bitsToLong
+"
+ _2toTheQ ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ offset ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ byteLen ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ bytes ,byte,Variavel,master.xml,BitHelper,"getBytes
+"
+ exp ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ byteIndex ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ output ,boolean,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ mask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ i ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ boolIndex ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,For,master.xml,BitHelper,
+ boolIndex ,int,For,master.xml,BitHelper,
+ serialVersionUID ,long,Atributo,master.xml,HmhCardinalityEstimator,
+ MIN_P ,int,Atributo,master.xml,HmhCardinalityEstimator,
+ rawEstimateData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ biasData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ hllEstimateTreshold , double,Atributo,master.xml,HmhCardinalityEstimator,
+ basicEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ numZeroRegisters ,int,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ linearCountingEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ estimatesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ biasesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"useLinearCounting
+"
+ denominator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ numerator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ indexesByDifference ,SortedMap,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ ascDiffIter ,Double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ minDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ smallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ firstIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"alpha
+"
+ linearCountingEstimate ,long,if,master.xml,HmhCardinalityEstimator,
+ VERSION ,byte,Atributo,master.xml,HyperMinHash,
+ registers,Registers,Atributo,master.xml,HyperMinHash,
+ p,int,Atributo,master.xml,HyperMinHash,
+ numZeroSearchBits,int,Atributo,master.xml,HyperMinHash,
+ r,int,Atributo,master.xml,HyperMinHash,
+ hash , long,Variavel,master.xml,HyperMinHash,"offer
+"
+ hllHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ registerIndex ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ zeroSearchSpace ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ leftmostOnePosition ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ hmhHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ minHashBits ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ incomingRegister ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ that ,HyperMinHash,Variavel,master.xml,HyperMinHash,"equals
+"
+ result ,int,Variavel,master.xml,HyperMinHash,"hashCode
+"
+ instance ,HyperMinHashCombiner,Atributo,master.xml,HyperMinHashCombiner,
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ mergedSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ c ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ n ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ numRegisters ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ itemInIntersection ,boolean,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ p ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ numZeroSearchBits ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ r ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ itemInIntersection ,boolean,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ product ,double,For,master.xml,HyperMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,HyperMinHashCombiner,
+ sketch ,HyperMinHash,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ inputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ version ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ p ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ r ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registers,Registers,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,long,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ outputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ longRegisters ,LongRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ intRegisters ,IntRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerSizeInBytes,int,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerValues ,long,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ registerValues ,int,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ longRegisters ,LongRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,long,if,master.xml,HyperMinHashSerDe,
+ intRegisters ,IntRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,int,if,master.xml,HyperMinHashSerDe,
+ registers, int,Atributo,master.xml,IntRegisters,
+ p,int,Atributo,master.xml,IntRegisters,
+ r,int,Atributo,master.xml,IntRegisters,
+ intIncomingRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,IntRegisters,"getNumZeroRegisters
+"
+ that ,IntRegisters,Variavel,master.xml,IntRegisters,"equals
+"
+ result ,int,Variavel,master.xml,IntRegisters,"hashCode
+"
+ currentMantissa ,int,if,master.xml,IntRegisters,
+ incomingMantissa ,int,if,master.xml,IntRegisters,
+ registers, long,Atributo,master.xml,LongRegisters,
+ p,int,Atributo,master.xml,LongRegisters,
+ r,int,Atributo,master.xml,LongRegisters,
+ currentRegister ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,LongRegisters,"getNumZeroRegisters
+"
+ that ,LongRegisters,Variavel,master.xml,LongRegisters,"equals
+"
+ result ,int,Variavel,master.xml,LongRegisters,"hashCode
+"
+ currentMantissa ,long,if,master.xml,LongRegisters,
+ incomingMantissa ,long,if,master.xml,LongRegisters,
+ NULL_HASHCODE ,long,Atributo,master.xml,Murmur3,
+ C1_32 ,int,Atributo,master.xml,Murmur3,
+ C2_32 ,int,Atributo,master.xml,Murmur3,
+ R1_32 ,int,Atributo,master.xml,Murmur3,
+ R2_32 ,int,Atributo,master.xml,Murmur3,
+ M_32 ,int,Atributo,master.xml,Murmur3,
+ N_32 ,int,Atributo,master.xml,Murmur3,
+ C1 ,long,Atributo,master.xml,Murmur3,
+ C2 ,long,Atributo,master.xml,Murmur3,
+ R1 ,int,Atributo,master.xml,Murmur3,
+ R2 ,int,Atributo,master.xml,Murmur3,
+ R3 ,int,Atributo,master.xml,Murmur3,
+ M ,int,Atributo,master.xml,Murmur3,
+ N1 ,int,Atributo,master.xml,Murmur3,
+ N2 ,int,Atributo,master.xml,Murmur3,
+ DEFAULT_SEED ,int,Atributo,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,Murmur3,
+ tailLen,int,Atributo,master.xml,Murmur3,
+ totalLen,int,Atributo,master.xml,Murmur3,
+ hash,int,Atributo,master.xml,Murmur3,
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ r1 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ idx ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ i8 ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ h1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ h2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ i16 ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ offset2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ length2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"add
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ consumed ,int,Variavel,master.xml,Murmur3,"add
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"end
+"
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ i8 ,int,For,master.xml,Murmur3,
+ k ,long,For,master.xml,Murmur3,
+ i16 ,int,For,master.xml,Murmur3,
+ k1 ,long,For,master.xml,Murmur3,
+ k2 ,long,For,master.xml,Murmur3,
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ k ,int,if,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,IncrementalHash32,
+ tailLen,int,Atributo,master.xml,IncrementalHash32,
+ totalLen,int,Atributo,master.xml,IncrementalHash32,
+ hash,int,Atributo,master.xml,IncrementalHash32,
+ offset2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ length2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ nblocks ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ i_4 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ consumed ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k1 ,int,Variavel,master.xml,IncrementalHash32,"end
+"
+ i_4 ,int,For,master.xml,IncrementalHash32,
+ k ,int,For,master.xml,IncrementalHash32,
+ k ,int,if,master.xml,IncrementalHash32,
+ NUM_THREADS ,int,Atributo,master.xml,DemoBetaMinHash,
+ threadPool ,ExecutorService,Atributo,master.xml,DemoBetaMinHash,
+ rng ,Random,Atributo,master.xml,DemoBetaMinHash,
+ out ,long,Variavel,master.xml,DemoBetaMinHash,"getSketchSizes
+"
+ jac ,double,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ unionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ intersectionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketchSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketches ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ exactUnionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sum ,long,Variavel,master.xml,DemoBetaMinHash,"sum
+"
+ out ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ counter ,long,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"getFormattedHeader
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"headerWithDelimiter
+"
+ pct ,double,Variavel,master.xml,DemoBetaMinHash,"plusMinusThreePercent
+"
+ jac ,double,For,master.xml,DemoBetaMinHash,
+ unionSize ,long,For,master.xml,DemoBetaMinHash,
+ intersectionSize ,long,For,master.xml,DemoBetaMinHash,
+ sketchSize ,long,For,master.xml,DemoBetaMinHash,
+ val ,byte,For,master.xml,DemoBetaMinHash,
+ delta ,long,Variavel,master.xml,CommonTests,"getError
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testCardinality
+"
+ assertionCheckpoint ,int,Variavel,master.xml,CommonTests,"testCardinality
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testCardinality
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ res ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testCardinality
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testUnion
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testUnion
+"
+ msk ,Sketch,Variavel,master.xml,CommonTests,"testUnion
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ res ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testUnion
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ frac ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ expected ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ result ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ smallSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ bigSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedJaccardIndex ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ sketchSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ intersectionSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk3 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk4 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ numIter ,long,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ n ,int,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ b ,byte,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ bytes ,byte,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ frac ,double,For,master.xml,CommonTests,
+ expected ,long,For,master.xml,CommonTests,
+ result ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ sk3 ,Sketch,For,master.xml,CommonTests,
+ sk4 ,Sketch,For,master.xml,CommonTests,
+ expectedIntersection ,long,For,master.xml,CommonTests,
+ actualIntersection ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ val ,byte,For,master.xml,CommonTests,
+ bytes ,byte,while,master.xml,CommonTests,
+ exact ,long,while,master.xml,CommonTests,
+ res ,long,while,master.xml,CommonTests,
+ pctError ,double,while,master.xml,CommonTests,
+ exact ,long,if,master.xml,CommonTests,
+ res ,long,if,master.xml,CommonTests,
+ pctError ,double,if,master.xml,CommonTests,
+ sketch ,Sketch,if,master.xml,CommonTests,
+ rng ,Random,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,For,master.xml,RandomTestRunner,
+ sk ,BetaMinHash,Variavel,master.xml,TestBetaMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ bigSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ maxPctErr ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestBetaMinHash,
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestBetaMinHashSerde,"randomByteArrayOfLength
+"
+ rawEstimates , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ biases , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ basicEstimate ,long,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ slope ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ expectedOutput ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ actualEstimate ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ sk ,HyperMinHash,Variavel,master.xml,TestHyperMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ combiner ,HyperMinHashCombiner,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ hyperMinHash ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestHyperMinHashSerDe,"randomByteArrayOfLength
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ minHashBits ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ packedRegister ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ minHashBits ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ packedRegister ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,long,For,master.xml,TestPackers,
+ packedRegister ,long,For,master.xml,TestPackers,
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,int,For,master.xml,TestPackers,
+ packedRegister ,int,For,master.xml,TestPackers,
+nome,tipo,posicao,arquivo,nomeClasse,nomeMetodo
+ P ,int,Atributo,master.xml,BetaMinHash,
+ NUM_REGISTERS ,int,Atributo,master.xml,BetaMinHash,
+ Q ,int,Atributo,master.xml,BetaMinHash,
+ R ,int,Atributo,master.xml,BetaMinHash,
+ HASH_SEED ,int,Atributo,master.xml,BetaMinHash,
+ VERSION ,byte,Atributo,master.xml,BetaMinHash,
+ registers, short,Atributo,master.xml,BetaMinHash,
+ registersCopy , short,Variavel,master.xml,BetaMinHash,"deepCopyFromRegisters
+"
+ _128BitHash ,long,Variavel,master.xml,BetaMinHash,"offer
+"
+ buf ,ByteBuffer,Variavel,master.xml,BetaMinHash,"offer
+"
+ that ,BetaMinHash,Variavel,master.xml,BetaMinHash,"equals
+"
+ hashLeftHalf ,long,Variavel,master.xml,BetaMinHash,"addHash
+"
+ registerIndex ,int,Variavel,master.xml,BetaMinHash,"addHash
+"
+ leftmostOneBitPosition ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ rBits ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ packedRegister ,short,Variavel,master.xml,BetaMinHash,"addHash
+"
+ exponent ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
+"
+ packedRegister ,int,Variavel,master.xml,BetaMinHash,"packIntoRegister
+"
+ sum,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ zeros,double,Atributo,master.xml,BetaMinHashCardinalityGetter,
+ saz ,SumAndZeros,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ zeros ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ mHat ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ alpha ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"cardinality
+"
+ sum ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
+"
+ leadingZeros ,byte,Variavel,master.xml,BetaMinHashCardinalityGetter,"getRegisterSumAndZeros
+"
+ log ,double,Variavel,master.xml,BetaMinHashCardinalityGetter,"beta
+"
+ leadingZeros ,byte,For,master.xml,BetaMinHashCardinalityGetter,
+ sum,double,Atributo,master.xml,SumAndZeros,
+ zeros,double,Atributo,master.xml,SumAndZeros,
+ INSTANCE ,BetaMinHashCombiner,Atributo,master.xml,BetaMinHashCombiner,
+ serialVersionUID ,long,Atributo,master.xml,BetaMinHashCombiner,
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ numRegisters ,int,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ mergedSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"union
+"
+ c ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ n ,long,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ firstSketch ,BetaMinHash,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ itemInIntersection ,boolean,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ p ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ q ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ r ,int,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ numExpectedCollisions ,double,Variavel,master.xml,BetaMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,BetaMinHashCombiner,"expectedCollision
+"
+ itemInIntersection ,boolean,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ den ,double,For,master.xml,BetaMinHashCombiner,
+ product ,double,For,master.xml,BetaMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,BetaMinHashCombiner,
+ sketch ,BetaMinHash,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ den ,double,if,master.xml,BetaMinHashCombiner,
+ registers ,short,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ inputBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ version ,byte,Variavel,master.xml,BetaMinHashSerde,"fromBytes
+"
+ byteBuffer ,ByteBuffer,Variavel,master.xml,BetaMinHashSerde,"toBytes
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"longToBits
+"
+ bits ,boolean,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ bits , boolean,Variavel,master.xml,BitHelper,"getRightmostBits
+"
+ out ,long,Variavel,master.xml,BitHelper,"bitsToLong
+"
+ _2toTheQ ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ offset ,int,Variavel,master.xml,BitHelper,"getLeftmostOneBitPosition
+"
+ byteLen ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ bytes ,byte,Variavel,master.xml,BitHelper,"getBytes
+"
+ exp ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ byteIndex ,int,Variavel,master.xml,BitHelper,"getBytes
+"
+ output ,boolean,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ mask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ i ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ boolIndex ,int,Variavel,master.xml,BitHelper,"getBitsAsBooleans
+"
+ shiftedMask ,int,For,master.xml,BitHelper,
+ boolIndex ,int,For,master.xml,BitHelper,
+ serialVersionUID ,long,Atributo,master.xml,HmhCardinalityEstimator,
+ MIN_P ,int,Atributo,master.xml,HmhCardinalityEstimator,
+ rawEstimateData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ biasData , double,Atributo,master.xml,HmhCardinalityEstimator,
+ hllEstimateTreshold , double,Atributo,master.xml,HmhCardinalityEstimator,
+ basicEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ numZeroRegisters ,int,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ linearCountingEstimate ,long,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ estimatesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ biasesForPrecision , double,Variavel,master.xml,HmhCardinalityEstimator,"estimateCardinality
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"useLinearCounting
+"
+ denominator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ numerator ,double,Variavel,master.xml,HmhCardinalityEstimator,"basicHllEstimate
+"
+ indexesByDifference ,SortedMap,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ ascDiffIter ,Double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ minDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiff ,double,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ smallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondSmallestDiffIndex ,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ firstIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ secondIndex,int,Variavel,master.xml,HmhCardinalityEstimator,"biasCorrectEstimate
+"
+ m ,int,Variavel,master.xml,HmhCardinalityEstimator,"alpha
+"
+ linearCountingEstimate ,long,if,master.xml,HmhCardinalityEstimator,
+ VERSION ,byte,Atributo,master.xml,HyperMinHash,
+ registers,Registers,Atributo,master.xml,HyperMinHash,
+ p,int,Atributo,master.xml,HyperMinHash,
+ numZeroSearchBits,int,Atributo,master.xml,HyperMinHash,
+ r,int,Atributo,master.xml,HyperMinHash,
+ hash , long,Variavel,master.xml,HyperMinHash,"offer
+"
+ hllHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ registerIndex ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ zeroSearchSpace ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ leftmostOnePosition ,int,Variavel,master.xml,HyperMinHash,"offer
+"
+ hmhHash ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ minHashBits ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ incomingRegister ,long,Variavel,master.xml,HyperMinHash,"offer
+"
+ that ,HyperMinHash,Variavel,master.xml,HyperMinHash,"equals
+"
+ result ,int,Variavel,master.xml,HyperMinHash,"hashCode
+"
+ instance ,HyperMinHashCombiner,Atributo,master.xml,HyperMinHashCombiner,
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ mergedSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"union
+"
+ c ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ n ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ numRegisters ,long,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ itemInIntersection ,boolean,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ cardinalities ,double,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ i ,int,Variavel,master.xml,HyperMinHashCombiner,"similarity
+"
+ _2q ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ _2r ,int,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ x ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b1 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ b2 ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ den ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ product ,double,Variavel,master.xml,HyperMinHashCombiner,"expectedCollision
+"
+ firstSketch ,HyperMinHash,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ p ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ numZeroSearchBits ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ r ,int,Variavel,master.xml,HyperMinHashCombiner,"assertParamsAreEqual
+"
+ itemInIntersection ,boolean,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ den ,double,For,master.xml,HyperMinHashCombiner,
+ product ,double,For,master.xml,HyperMinHashCombiner,
+ itemInIntersection ,boolean,if,master.xml,HyperMinHashCombiner,
+ sketch ,HyperMinHash,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ den ,double,if,master.xml,HyperMinHashCombiner,
+ inputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ serdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ version ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ p ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ r ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ numRegisters ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registers,Registers,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,long,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ registerValues ,int,Variavel,master.xml,HyperMinHashSerDe,"fromBytes
+"
+ outputBuffer ,ByteBuffer,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersSerdeToken ,byte,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ longRegisters ,LongRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ intRegisters ,IntRegisters,Variavel,master.xml,HyperMinHashSerDe,"toBytes
+"
+ registersClass ,Class,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerSizeInBytes,int,Variavel,master.xml,HyperMinHashSerDe,"sizeInBytes
+"
+ registerValues ,long,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ registerValues ,int,if,master.xml,HyperMinHashSerDe,
+ i ,int,if,master.xml,HyperMinHashSerDe,
+ longRegisters ,LongRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,long,if,master.xml,HyperMinHashSerDe,
+ intRegisters ,IntRegisters,if,master.xml,HyperMinHashSerDe,
+ register ,int,if,master.xml,HyperMinHashSerDe,
+ registers, int,Atributo,master.xml,IntRegisters,
+ p,int,Atributo,master.xml,IntRegisters,
+ r,int,Atributo,master.xml,IntRegisters,
+ intIncomingRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentRegister ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,int,Variavel,master.xml,IntRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,IntRegisters,"getNumZeroRegisters
+"
+ that ,IntRegisters,Variavel,master.xml,IntRegisters,"equals
+"
+ result ,int,Variavel,master.xml,IntRegisters,"hashCode
+"
+ currentMantissa ,int,if,master.xml,IntRegisters,
+ incomingMantissa ,int,if,master.xml,IntRegisters,
+ registers, long,Atributo,master.xml,LongRegisters,
+ p,int,Atributo,master.xml,LongRegisters,
+ r,int,Atributo,master.xml,LongRegisters,
+ currentRegister ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingLeadingOnePosition ,int,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ currentMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ incomingMantissa ,long,Variavel,master.xml,LongRegisters,"updateIfGreaterThan
+"
+ count ,int,Variavel,master.xml,LongRegisters,"getNumZeroRegisters
+"
+ that ,LongRegisters,Variavel,master.xml,LongRegisters,"equals
+"
+ result ,int,Variavel,master.xml,LongRegisters,"hashCode
+"
+ currentMantissa ,long,if,master.xml,LongRegisters,
+ incomingMantissa ,long,if,master.xml,LongRegisters,
+ NULL_HASHCODE ,long,Atributo,master.xml,Murmur3,
+ C1_32 ,int,Atributo,master.xml,Murmur3,
+ C2_32 ,int,Atributo,master.xml,Murmur3,
+ R1_32 ,int,Atributo,master.xml,Murmur3,
+ R2_32 ,int,Atributo,master.xml,Murmur3,
+ M_32 ,int,Atributo,master.xml,Murmur3,
+ N_32 ,int,Atributo,master.xml,Murmur3,
+ C1 ,long,Atributo,master.xml,Murmur3,
+ C2 ,long,Atributo,master.xml,Murmur3,
+ R1 ,int,Atributo,master.xml,Murmur3,
+ R2 ,int,Atributo,master.xml,Murmur3,
+ R3 ,int,Atributo,master.xml,Murmur3,
+ M ,int,Atributo,master.xml,Murmur3,
+ N1 ,int,Atributo,master.xml,Murmur3,
+ N2 ,int,Atributo,master.xml,Murmur3,
+ DEFAULT_SEED ,int,Atributo,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,Murmur3,
+ tailLen,int,Atributo,master.xml,Murmur3,
+ totalLen,int,Atributo,master.xml,Murmur3,
+ hash,int,Atributo,master.xml,Murmur3,
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ r0 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ r1 ,long,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ idx ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"hash32
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ length ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ hash ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ i8 ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ k ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash64
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash64
+"
+ h1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ h2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ i16 ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k1 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ k2 ,long,Variavel,master.xml,Murmur3,"hash128
+"
+ tailStart ,int,Variavel,master.xml,Murmur3,"hash128
+"
+ offset2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ length2 ,int,Variavel,master.xml,Murmur3,"add
+"
+ nblocks ,int,Variavel,master.xml,Murmur3,"add
+"
+ i_4 ,int,Variavel,master.xml,Murmur3,"add
+"
+ k ,int,Variavel,master.xml,Murmur3,"add
+"
+ consumed ,int,Variavel,master.xml,Murmur3,"add
+"
+ k1 ,int,Variavel,master.xml,Murmur3,"end
+"
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ i8 ,int,For,master.xml,Murmur3,
+ k ,long,For,master.xml,Murmur3,
+ i16 ,int,For,master.xml,Murmur3,
+ k1 ,long,For,master.xml,Murmur3,
+ k2 ,long,For,master.xml,Murmur3,
+ i_4 ,int,For,master.xml,Murmur3,
+ k ,int,For,master.xml,Murmur3,
+ k ,int,if,master.xml,Murmur3,
+ tail ,byte,Atributo,master.xml,IncrementalHash32,
+ tailLen,int,Atributo,master.xml,IncrementalHash32,
+ totalLen,int,Atributo,master.xml,IncrementalHash32,
+ hash,int,Atributo,master.xml,IncrementalHash32,
+ offset2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ length2 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ nblocks ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ i_4 ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ consumed ,int,Variavel,master.xml,IncrementalHash32,"add
+"
+ k1 ,int,Variavel,master.xml,IncrementalHash32,"end
+"
+ i_4 ,int,For,master.xml,IncrementalHash32,
+ k ,int,For,master.xml,IncrementalHash32,
+ k ,int,if,master.xml,IncrementalHash32,
+ NUM_THREADS ,int,Atributo,master.xml,DemoBetaMinHash,
+ threadPool ,ExecutorService,Atributo,master.xml,DemoBetaMinHash,
+ rng ,Random,Atributo,master.xml,DemoBetaMinHash,
+ out ,long,Variavel,master.xml,DemoBetaMinHash,"getSketchSizes
+"
+ jac ,double,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ unionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ intersectionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketchSize ,long,Variavel,master.xml,DemoBetaMinHash,"runJaccardIndexEstimation
+"
+ sketches ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ exactUnionSize ,long,Variavel,master.xml,DemoBetaMinHash,"runTestIteration
+"
+ sum ,long,Variavel,master.xml,DemoBetaMinHash,"sum
+"
+ out ,BetaMinHash,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ counter ,long,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,DemoBetaMinHash,"buildIntersectingSketches
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"getFormattedHeader
+"
+ sb ,StringBuilder,Variavel,master.xml,DemoBetaMinHash,"headerWithDelimiter
+"
+ pct ,double,Variavel,master.xml,DemoBetaMinHash,"plusMinusThreePercent
+"
+ jac ,double,For,master.xml,DemoBetaMinHash,
+ unionSize ,long,For,master.xml,DemoBetaMinHash,
+ intersectionSize ,long,For,master.xml,DemoBetaMinHash,
+ sketchSize ,long,For,master.xml,DemoBetaMinHash,
+ val ,byte,For,master.xml,DemoBetaMinHash,
+ delta ,long,Variavel,master.xml,CommonTests,"getError
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testCardinality
+"
+ assertionCheckpoint ,int,Variavel,master.xml,CommonTests,"testCardinality
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testCardinality
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ res ,long,Variavel,master.xml,CommonTests,"testCardinality
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testCardinality
+"
+ unique ,ByteBuffer,Variavel,master.xml,CommonTests,"testUnion
+"
+ bytes ,byte,Variavel,master.xml,CommonTests,"testUnion
+"
+ msk ,Sketch,Variavel,master.xml,CommonTests,"testUnion
+"
+ exact ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ res ,long,Variavel,master.xml,CommonTests,"testUnion
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testUnion
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testIntersection
+"
+ frac ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ expected ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ result ,long,Variavel,master.xml,CommonTests,"testIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersection
+"
+ smallSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ bigSketch ,Sketch,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedJaccardIndex ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testIntersectLargeSetWithSmall
+"
+ sketchSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ intersectionSize ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk1 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk2 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk3 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ sk4 ,Sketch,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ expectedIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ actualIntersection ,long,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ pctError ,double,Variavel,master.xml,CommonTests,"testMultiwayIntersection
+"
+ numIter ,long,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ val ,byte,Variavel,master.xml,CommonTests,"buildIntersectingSketches
+"
+ n ,int,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ b ,byte,Variavel,master.xml,CommonTests,"randomByteArray
+"
+ bytes ,byte,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ frac ,double,For,master.xml,CommonTests,
+ expected ,long,For,master.xml,CommonTests,
+ result ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ sk1 ,Sketch,For,master.xml,CommonTests,
+ sk2 ,Sketch,For,master.xml,CommonTests,
+ sk3 ,Sketch,For,master.xml,CommonTests,
+ sk4 ,Sketch,For,master.xml,CommonTests,
+ expectedIntersection ,long,For,master.xml,CommonTests,
+ actualIntersection ,long,For,master.xml,CommonTests,
+ pctError ,double,For,master.xml,CommonTests,
+ val ,byte,For,master.xml,CommonTests,
+ bytes ,byte,while,master.xml,CommonTests,
+ exact ,long,while,master.xml,CommonTests,
+ res ,long,while,master.xml,CommonTests,
+ pctError ,double,while,master.xml,CommonTests,
+ exact ,long,if,master.xml,CommonTests,
+ res ,long,if,master.xml,CommonTests,
+ pctError ,double,if,master.xml,CommonTests,
+ sketch ,Sketch,if,master.xml,CommonTests,
+ rng ,Random,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,Variavel,master.xml,RandomTestRunner,"runRandomizedTest
+"
+ seed ,long,For,master.xml,RandomTestRunner,
+ sk ,BetaMinHash,Variavel,master.xml,TestBetaMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testCardinality
+"
+ combiner ,BetaMinHashCombiner,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestBetaMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ bigSetSize ,int,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ maxPctErr ,double,Variavel,master.xml,TestBetaMinHash,"testIntersectLargeSetWithSmallSet
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestBetaMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestBetaMinHash,
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripEmptySketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testRoundtripFilledSketch
+"
+ serde ,BetaMinHashSerde,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ sketch ,BetaMinHash,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestBetaMinHashSerde,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestBetaMinHashSerde,"randomByteArrayOfLength
+"
+ rawEstimates , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ biases , double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ basicEstimate ,long,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ slope ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ expectedOutput ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ actualEstimate ,double,Variavel,master.xml,TestHmhCardinalityEstimator,"testBiasCorrection
+"
+ sk ,HyperMinHash,Variavel,master.xml,TestHyperMinHash,"testZeroCardinality
+"
+ maxUniqueElements ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ minTestCardinality ,int,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testCardinality
+"
+ combiner ,HyperMinHashCombiner,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ elementsPerSketch ,int,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ pctErr ,double,Variavel,master.xml,TestHyperMinHash,"testUnion
+"
+ overlapSlices ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ numElementsLeftSketch ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ pctError ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionCardinality
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithSmallJaccard
+"
+ smallSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ bigSetSize ,int,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ maxPctErr ,double,Variavel,master.xml,TestHyperMinHash,"testIntersectionWithExtremelySmallJaccard
+"
+ initialIntersectionSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ initialSketchSize ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ numIter ,int,Variavel,master.xml,TestHyperMinHash,"testMultiwayIntersection
+"
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ maxPctErr ,double,For,master.xml,TestHyperMinHash,
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ hyperMinHash ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripEmptySketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ iterations ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testRoundtripFilledSketch
+"
+ serde ,HyperMinHashSerDe,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ p ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ r ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ hmh ,HyperMinHash,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ numElements ,int,Variavel,master.xml,TestHyperMinHashSerDe,"testSizeInBytes
+"
+ bytes ,byte,Variavel,master.xml,TestHyperMinHashSerDe,"randomByteArrayOfLength
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ minHashBits ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ packedRegister ,long,Variavel,master.xml,TestPackers,"testLongPacker
+"
+ iterations ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ rng ,Random,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ r ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ minHashBits ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ packedRegister ,int,Variavel,master.xml,TestPackers,"testIntPacker
+"
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,long,For,master.xml,TestPackers,
+ packedRegister ,long,For,master.xml,TestPackers,
+ leftmostOnePos ,int,For,master.xml,TestPackers,
+ r ,int,For,master.xml,TestPackers,
+ minHashBits ,int,For,master.xml,TestPackers,
+ packedRegister ,int,For,master.xml,TestPackers,

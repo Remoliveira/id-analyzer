@@ -1,5 +1,5 @@
 from wcm import wcm
-# from syllabify import syllabify as sy
+
 import nltk
 import pandas as pd
 import csv
@@ -7,7 +7,7 @@ import re
 
 nltk.download('cmudict')
 
-identificadoresCsv = pd.read_csv('../../../Identifiers.csv')
+identificadoresCsv = pd.read_csv('Identifiers.csv')
 
 
 def camelSplit(identifier):
